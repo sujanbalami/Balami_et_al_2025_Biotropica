@@ -1,0 +1,451 @@
+﻿land_cover,substrate,enzyme,ln_activity
+RM,Litter,Cellobiohydrolase (CBH),4.827686342
+RM,Topsoil,Cellobiohydrolase (CBH),4.787603911
+RM,Litter,Cellobiohydrolase (CBH),4.752497023
+RM,Topsoil,Cellobiohydrolase (CBH),4.742942625
+RM,Litter,Cellobiohydrolase (CBH),4.787325664
+RM,Topsoil,Cellobiohydrolase (CBH),4.785375766
+RM,Topsoil,Cellobiohydrolase (CBH),4.719394349
+RM,Litter,Cellobiohydrolase (CBH),4.752208833
+RM,Topsoil,Cellobiohydrolase (CBH),4.762531703
+RM,Litter,Cellobiohydrolase (CBH),4.743233498
+RM,Topsoil,Cellobiohydrolase (CBH),4.845172857
+RM,Litter,Cellobiohydrolase (CBH),4.795915513
+RM,Topsoil,Cellobiohydrolase (CBH),4.828487852
+RM,Topsoil,Cellobiohydrolase (CBH),4.797844987
+RM,Litter,Cellobiohydrolase (CBH),4.818827065
+RM,Topsoil,Cellobiohydrolase (CBH),4.824741962
+RM,Litter,Cellobiohydrolase (CBH),4.709516789
+RM,Topsoil,Cellobiohydrolase (CBH),4.761104328
+RM,Litter,Cellobiohydrolase (CBH),4.826884189
+RM,Topsoil,Cellobiohydrolase (CBH),4.793152647
+RM,Litter,Cellobiohydrolase (CBH),4.771336244
+RM,Topsoil,Cellobiohydrolase (CBH),4.800045551
+NF,Litter,Cellobiohydrolase (CBH),4.719394349
+NF,Topsoil,Cellobiohydrolase (CBH),4.721179833
+NF,Litter,Cellobiohydrolase (CBH),4.708915001
+NF,Topsoil,Cellobiohydrolase (CBH),4.712520305
+NF,Litter,Cellobiohydrolase (CBH),4.78174441
+NF,Topsoil,Cellobiohydrolase (CBH),4.803063441
+NF,Litter,Cellobiohydrolase (CBH),4.703482556
+NF,Topsoil,Cellobiohydrolase (CBH),4.707408946
+NF,Litter,Cellobiohydrolase (CBH),4.720287489
+NF,Topsoil,Cellobiohydrolase (CBH),4.7294702
+NF,Litter,Cellobiohydrolase (CBH),4.804705732
+NF,Topsoil,Cellobiohydrolase (CBH),4.788438186
+NF,Litter,Cellobiohydrolase (CBH),4.745557436
+NF,Litter,Cellobiohydrolase (CBH),4.743814989
+NF,Topsoil,Cellobiohydrolase (CBH),4.722071381
+NF,Litter,Cellobiohydrolase (CBH),4.805252564
+NF,Topsoil,Cellobiohydrolase (CBH),4.822057709
+NF,Litter,Cellobiohydrolase (CBH),4.767369596
+NF,Topsoil,Cellobiohydrolase (CBH),4.753361095
+NF,Litter,Cellobiohydrolase (CBH),4.757096803
+NF,Topsoil,Cellobiohydrolase (CBH),4.793429278
+NF,Litter,Cellobiohydrolase (CBH),4.71671013
+NF,Topsoil,Cellobiohydrolase (CBH),4.75824345
+AF,Litter,Cellobiohydrolase (CBH),4.907288291
+AF,Topsoil,Cellobiohydrolase (CBH),4.914910779
+AF,Litter,Cellobiohydrolase (CBH),4.947918402
+AF,Topsoil,Cellobiohydrolase (CBH),4.941260324
+AF,Litter,Cellobiohydrolase (CBH),4.86184237
+AF,Litter,Cellobiohydrolase (CBH),4.954767852
+AF,Topsoil,Cellobiohydrolase (CBH),4.937914587
+AF,Litter,Cellobiohydrolase (CBH),4.882042839
+AF,Topsoil,Cellobiohydrolase (CBH),4.894620251
+AF,Litter,Cellobiohydrolase (CBH),4.836467821
+AF,Topsoil,Cellobiohydrolase (CBH),4.871865756
+AF,Litter,Cellobiohydrolase (CBH),4.958292347
+AF,Topsoil,Cellobiohydrolase (CBH),4.926599888
+AF,Litter,Cellobiohydrolase (CBH),4.839377928
+AF,Topsoil,Cellobiohydrolase (CBH),4.856662934
+AF,Litter,Cellobiohydrolase (CBH),4.877221637
+AF,Topsoil,Cellobiohydrolase (CBH),4.901346846
+AF,Litter,Cellobiohydrolase (CBH),4.891866761
+AF,Topsoil,Cellobiohydrolase (CBH),4.885832701
+AF,Litter,Cellobiohydrolase (CBH),4.866223896
+AF,Topsoil,Cellobiohydrolase (CBH),4.899358493
+AF,Litter,Cellobiohydrolase (CBH),4.896368532
+AF,Topsoil,Cellobiohydrolase (CBH),4.920285253
+MF,Litter,Cellobiohydrolase (CBH),4.790936846
+MF,Topsoil,Cellobiohydrolase (CBH),4.811791325
+MF,Litter,Cellobiohydrolase (CBH),4.786211902
+MF,Topsoil,Cellobiohydrolase (CBH),4.823400736
+MF,Litter,Cellobiohydrolase (CBH),4.813961445
+MF,Topsoil,Cellobiohydrolase (CBH),4.803337343
+MF,Litter,Cellobiohydrolase (CBH),4.90209146
+MF,Topsoil,Cellobiohydrolase (CBH),4.862100639
+MF,Litter,Cellobiohydrolase (CBH),4.785096899
+MF,Topsoil,Cellobiohydrolase (CBH),4.793982309
+MF,Litter,Cellobiohydrolase (CBH),4.863133048
+MF,Litter,Cellobiohydrolase (CBH),4.746717384
+MF,Topsoil,Cellobiohydrolase (CBH),4.766801645
+MF,Litter,Cellobiohydrolase (CBH),4.812062847
+MF,Topsoil,Cellobiohydrolase (CBH),4.805799096
+MF,Litter,Cellobiohydrolase (CBH),4.803337343
+MF,Topsoil,Cellobiohydrolase (CBH),4.817207821
+MF,Litter,Cellobiohydrolase (CBH),4.837262327
+MF,Topsoil,Cellobiohydrolase (CBH),4.85796031
+MF,Topsoil,Cellobiohydrolase (CBH),4.779503156
+MF,Litter,Cellobiohydrolase (CBH),4.790936846
+MF,Topsoil,Cellobiohydrolase (CBH),4.81801777
+RM,Litter,"β-1,4-glucosidase (BG)",2.504062074
+RM,Topsoil,"β-1,4-glucosidase (BG)",2.513699809
+RM,Litter,"β-1,4-glucosidase (BG)",2.498139492
+RM,Topsoil,"β-1,4-glucosidase (BG)",2.495760603
+RM,Litter,"β-1,4-glucosidase (BG)",2.498614592
+RM,Topsoil,"β-1,4-glucosidase (BG)",2.509714941
+RM,Topsoil,"β-1,4-glucosidase (BG)",2.500275665
+RM,Litter,"β-1,4-glucosidase (BG)",2.480642049
+RM,Topsoil,"β-1,4-glucosidase (BG)",2.525791167
+RM,Litter,"β-1,4-glucosidase (BG)",2.528330327
+RM,Topsoil,"β-1,4-glucosidase (BG)",2.495522402
+RM,Litter,"β-1,4-glucosidase (BG)",2.482091799
+RM,Topsoil,"β-1,4-glucosidase (BG)",2.507363462
+RM,Topsoil,"β-1,4-glucosidase (BG)",2.515803034
+RM,Litter,"β-1,4-glucosidase (BG)",2.426999828
+RM,Topsoil,"β-1,4-glucosidase (BG)",2.464800208
+RM,Litter,"β-1,4-glucosidase (BG)",2.452192333
+RM,Topsoil,"β-1,4-glucosidase (BG)",2.488589791
+RM,Litter,"β-1,4-glucosidase (BG)",2.454180581
+RM,Topsoil,"β-1,4-glucosidase (BG)",2.467498839
+RM,Litter,"β-1,4-glucosidase (BG)",2.417515361
+RM,Topsoil,"β-1,4-glucosidase (BG)",2.453435452
+NF,Litter,"β-1,4-glucosidase (BG)",2.274023926
+NF,Topsoil,"β-1,4-glucosidase (BG)",2.300718425
+NF,Litter,"β-1,4-glucosidase (BG)",2.300718425
+NF,Topsoil,"β-1,4-glucosidase (BG)",2.342667026
+NF,Litter,"β-1,4-glucosidase (BG)",2.360275806
+NF,Topsoil,"β-1,4-glucosidase (BG)",2.364629976
+NF,Litter,"β-1,4-glucosidase (BG)",2.280838475
+NF,Topsoil,"β-1,4-glucosidase (BG)",2.284375543
+NF,Litter,"β-1,4-glucosidase (BG)",2.34654553
+NF,Topsoil,"β-1,4-glucosidase (BG)",2.319074697
+NF,Litter,"β-1,4-glucosidase (BG)",2.415452784
+NF,Topsoil,"β-1,4-glucosidase (BG)",2.373551016
+NF,Litter,"β-1,4-glucosidase (BG)",2.337379167
+NF,Litter,"β-1,4-glucosidase (BG)",2.364629976
+NF,Topsoil,"β-1,4-glucosidase (BG)",2.282903285
+NF,Litter,"β-1,4-glucosidase (BG)",2.285257858
+NF,Topsoil,"β-1,4-glucosidase (BG)",2.314517122
+NF,Litter,"β-1,4-glucosidase (BG)",2.389040113
+NF,Topsoil,"β-1,4-glucosidase (BG)",2.362727359
+NF,Litter,"β-1,4-glucosidase (BG)",2.319358857
+NF,Topsoil,"β-1,4-glucosidase (BG)",2.353434233
+NF,Litter,"β-1,4-glucosidase (BG)",2.37972198
+NF,Topsoil,"β-1,4-glucosidase (BG)",2.37058617
+AF,Litter,"β-1,4-glucosidase (BG)",2.624108927
+AF,Topsoil,"β-1,4-glucosidase (BG)",2.609974102
+AF,Litter,"β-1,4-glucosidase (BG)",2.523245544
+AF,Topsoil,"β-1,4-glucosidase (BG)",2.522318254
+AF,Litter,"β-1,4-glucosidase (BG)",2.57516839
+AF,Litter,"β-1,4-glucosidase (BG)",2.514868813
+AF,Topsoil,"β-1,4-glucosidase (BG)",2.551798391
+AF,Litter,"β-1,4-glucosidase (BG)",2.581090571
+AF,Topsoil,"β-1,4-glucosidase (BG)",2.587629897
+AF,Litter,"β-1,4-glucosidase (BG)",2.582401861
+AF,Topsoil,"β-1,4-glucosidase (BG)",2.573406913
+AF,Litter,"β-1,4-glucosidase (BG)",2.51556956
+AF,Topsoil,"β-1,4-glucosidase (BG)",2.511592151
+AF,Litter,"β-1,4-glucosidase (BG)",2.521390103
+AF,Topsoil,"β-1,4-glucosidase (BG)",2.560542558
+AF,Litter,"β-1,4-glucosidase (BG)",2.533848033
+AF,Topsoil,"β-1,4-glucosidase (BG)",2.538194727
+AF,Litter,"β-1,4-glucosidase (BG)",2.557636323
+AF,Topsoil,"β-1,4-glucosidase (BG)",2.553148635
+AF,Litter,"β-1,4-glucosidase (BG)",2.51088861
+AF,Topsoil,"β-1,4-glucosidase (BG)",2.519298608
+AF,Litter,"β-1,4-glucosidase (BG)",2.489788503
+AF,Topsoil,"β-1,4-glucosidase (BG)",2.524403449
+MF,Litter,"β-1,4-glucosidase (BG)",2.605715736
+MF,Topsoil,"β-1,4-glucosidase (BG)",2.579558555
+MF,Litter,"β-1,4-glucosidase (BG)",2.599079222
+MF,Topsoil,"β-1,4-glucosidase (BG)",2.57318651
+MF,Litter,"β-1,4-glucosidase (BG)",2.541613032
+MF,Topsoil,"β-1,4-glucosidase (BG)",2.540474895
+MF,Litter,"β-1,4-glucosidase (BG)",2.599293992
+MF,Topsoil,"β-1,4-glucosidase (BG)",2.586760454
+MF,Litter,"β-1,4-glucosidase (BG)",2.536595511
+MF,Topsoil,"β-1,4-glucosidase (BG)",2.555170587
+MF,Litter,"β-1,4-glucosidase (BG)",2.599079222
+MF,Litter,"β-1,4-glucosidase (BG)",2.521622221
+MF,Topsoil,"β-1,4-glucosidase (BG)",2.537966424
+MF,Litter,"β-1,4-glucosidase (BG)",2.576047966
+MF,Topsoil,"β-1,4-glucosidase (BG)",2.551573173
+MF,Litter,"β-1,4-glucosidase (BG)",2.57318651
+MF,Topsoil,"β-1,4-glucosidase (BG)",2.54524639
+MF,Litter,"β-1,4-glucosidase (BG)",2.499326818
+MF,Topsoil,"β-1,4-glucosidase (BG)",2.534993733
+MF,Topsoil,"β-1,4-glucosidase (BG)",2.52856084
+MF,Litter,"β-1,4-glucosidase (BG)",2.49194257
+MF,Topsoil,"β-1,4-glucosidase (BG)",2.508069486
+RM,Litter,β-N-acetyl glucosaminidase (NAG),4.446234779
+RM,Topsoil,β-N-acetyl glucosaminidase (NAG),4.463861232
+RM,Litter,β-N-acetyl glucosaminidase (NAG),4.481182368
+RM,Topsoil,β-N-acetyl glucosaminidase (NAG),4.502592925
+RM,Litter,β-N-acetyl glucosaminidase (NAG),4.448424769
+RM,Topsoil,β-N-acetyl glucosaminidase (NAG),4.481652723
+RM,Topsoil,β-N-acetyl glucosaminidase (NAG),4.519487881
+RM,Litter,β-N-acetyl glucosaminidase (NAG),4.520166828
+RM,Topsoil,β-N-acetyl glucosaminidase (NAG),4.535211088
+RM,Litter,β-N-acetyl glucosaminidase (NAG),4.497977294
+RM,Topsoil,β-N-acetyl glucosaminidase (NAG),4.456896094
+RM,Litter,β-N-acetyl glucosaminidase (NAG),4.48235784
+RM,Topsoil,β-N-acetyl glucosaminidase (NAG),4.49147941
+RM,Topsoil,β-N-acetyl glucosaminidase (NAG),4.503053319
+RM,Litter,β-N-acetyl glucosaminidase (NAG),4.53119153
+RM,Topsoil,β-N-acetyl glucosaminidase (NAG),4.520393041
+RM,Litter,β-N-acetyl glucosaminidase (NAG),4.53899256
+RM,Topsoil,β-N-acetyl glucosaminidase (NAG),4.532086162
+RM,Litter,β-N-acetyl glucosaminidase (NAG),4.431510983
+RM,Topsoil,β-N-acetyl glucosaminidase (NAG),4.459543757
+RM,Litter,β-N-acetyl glucosaminidase (NAG),4.515859027
+RM,Topsoil,β-N-acetyl glucosaminidase (NAG),4.504892776
+NF,Litter,β-N-acetyl glucosaminidase (NAG),4.343175238
+NF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.357652277
+NF,Litter,β-N-acetyl glucosaminidase (NAG),4.440126188
+NF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.431510983
+NF,Litter,β-N-acetyl glucosaminidase (NAG),4.351779501
+NF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.354987109
+NF,Litter,β-N-acetyl glucosaminidase (NAG),4.334496299
+NF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.335313157
+NF,Litter,β-N-acetyl glucosaminidase (NAG),4.422072521
+NF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.383401776
+NF,Litter,β-N-acetyl glucosaminidase (NAG),4.419823987
+NF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.416065159
+NF,Litter,β-N-acetyl glucosaminidase (NAG),4.314688821
+NF,Litter,β-N-acetyl glucosaminidase (NAG),4.316354512
+NF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.355253945
+NF,Litter,β-N-acetyl glucosaminidase (NAG),4.326839942
+NF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.376895758
+NF,Litter,β-N-acetyl glucosaminidase (NAG),4.376895758
+NF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.372971732
+NF,Litter,β-N-acetyl glucosaminidase (NAG),4.390896107
+NF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.372971732
+NF,Litter,β-N-acetyl glucosaminidase (NAG),4.331222179
+NF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.32958109
+AF,Litter,β-N-acetyl glucosaminidase (NAG),4.337488188
+AF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.370872605
+AF,Litter,β-N-acetyl glucosaminidase (NAG),4.397056117
+AF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.379503246
+AF,Litter,β-N-acetyl glucosaminidase (NAG),4.387543523
+AF,Litter,β-N-acetyl glucosaminidase (NAG),4.396800206
+AF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.402415173
+AF,Litter,β-N-acetyl glucosaminidase (NAG),4.308836956
+AF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.305197137
+AF,Litter,β-N-acetyl glucosaminidase (NAG),4.346141312
+AF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.341553665
+AF,Litter,β-N-acetyl glucosaminidase (NAG),4.418071625
+AF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.384956942
+AF,Litter,β-N-acetyl glucosaminidase (NAG),4.352582368
+AF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.357652277
+AF,Litter,β-N-acetyl glucosaminidase (NAG),4.444284087
+AF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.406985902
+AF,Litter,β-N-acetyl glucosaminidase (NAG),4.386251069
+AF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.409516198
+AF,Litter,β-N-acetyl glucosaminidase (NAG),4.367979092
+AF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.347217706
+AF,Litter,β-N-acetyl glucosaminidase (NAG),4.317186319
+AF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.330401971
+MF,Litter,β-N-acetyl glucosaminidase (NAG),4.289079657
+MF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.313020351
+MF,Litter,β-N-acetyl glucosaminidase (NAG),4.419323626
+MF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.376634634
+MF,Litter,β-N-acetyl glucosaminidase (NAG),4.428044011
+MF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.398590209
+MF,Litter,β-N-acetyl glucosaminidase (NAG),4.278188519
+MF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.293913868
+MF,Litter,β-N-acetyl glucosaminidase (NAG),4.305197137
+MF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.335313157
+MF,Litter,β-N-acetyl glucosaminidase (NAG),4.417319672
+MF,Litter,β-N-acetyl glucosaminidase (NAG),4.40216063
+MF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.394494056
+MF,Litter,β-N-acetyl glucosaminidase (NAG),4.350439956
+MF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.345063757
+MF,Litter,β-N-acetyl glucosaminidase (NAG),4.365605428
+MF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.343715179
+MF,Litter,β-N-acetyl glucosaminidase (NAG),4.2990071
+MF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.316631858
+MF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.28508092
+MF,Litter,β-N-acetyl glucosaminidase (NAG),4.288509387
+MF,Topsoil,β-N-acetyl glucosaminidase (NAG),4.303793671
+RM,Litter,Leucine aminopeptidase (LAP),3.86163812
+RM,Topsoil,Leucine aminopeptidase (LAP),3.871699034
+RM,Litter,Leucine aminopeptidase (LAP),3.943575324
+RM,Topsoil,Leucine aminopeptidase (LAP),3.939426192
+RM,Litter,Leucine aminopeptidase (LAP),3.90935456
+RM,Topsoil,Leucine aminopeptidase (LAP),3.884958041
+RM,Topsoil,Leucine aminopeptidase (LAP),3.836321996
+RM,Litter,Leucine aminopeptidase (LAP),3.883585068
+RM,Topsoil,Leucine aminopeptidase (LAP),3.969628882
+RM,Litter,Leucine aminopeptidase (LAP),3.930027219
+RM,Topsoil,Leucine aminopeptidase (LAP),3.827641973
+RM,Litter,Leucine aminopeptidase (LAP),3.868356631
+RM,Topsoil,Leucine aminopeptidase (LAP),3.924239609
+RM,Topsoil,Leucine aminopeptidase (LAP),3.902637235
+RM,Litter,Leucine aminopeptidase (LAP),3.882760379
+RM,Topsoil,Leucine aminopeptidase (LAP),3.906135875
+RM,Litter,Leucine aminopeptidase (LAP),3.82618795
+RM,Topsoil,Leucine aminopeptidase (LAP),3.846924623
+RM,Litter,Leucine aminopeptidase (LAP),3.884958041
+RM,Topsoil,Leucine aminopeptidase (LAP),3.864723042
+RM,Litter,Leucine aminopeptidase (LAP),3.913630087
+RM,Topsoil,Leucine aminopeptidase (LAP),3.880833455
+NF,Litter,Leucine aminopeptidase (LAP),3.936824215
+NF,Topsoil,Leucine aminopeptidase (LAP),3.931861729
+NF,Litter,Leucine aminopeptidase (LAP),3.880282222
+NF,Topsoil,Leucine aminopeptidase (LAP),3.932123528
+NF,Litter,Leucine aminopeptidase (LAP),3.911761793
+NF,Topsoil,Leucine aminopeptidase (LAP),3.889065684
+NF,Litter,Leucine aminopeptidase (LAP),3.892339694
+NF,Topsoil,Leucine aminopeptidase (LAP),3.902637235
+NF,Litter,Leucine aminopeptidase (LAP),3.998456241
+NF,Topsoil,Leucine aminopeptidase (LAP),3.963559419
+NF,Litter,Leucine aminopeptidase (LAP),4.028854937
+NF,Topsoil,Leucine aminopeptidase (LAP),4.00261198
+NF,Litter,Leucine aminopeptidase (LAP),3.979164154
+NF,Litter,Leucine aminopeptidase (LAP),3.967862424
+NF,Topsoil,Leucine aminopeptidase (LAP),3.964066617
+NF,Litter,Leucine aminopeptidase (LAP),3.876968432
+NF,Topsoil,Leucine aminopeptidase (LAP),3.912295948
+NF,Litter,Leucine aminopeptidase (LAP),3.998211247
+NF,Topsoil,Leucine aminopeptidase (LAP),3.965333488
+NF,Litter,Leucine aminopeptidase (LAP),3.96203628
+NF,Topsoil,Leucine aminopeptidase (LAP),3.936824215
+NF,Litter,Leucine aminopeptidase (LAP),3.888518972
+NF,Topsoil,Leucine aminopeptidase (LAP),3.939426192
+AF,Litter,Leucine aminopeptidase (LAP),4.154207219
+AF,Topsoil,Leucine aminopeptidase (LAP),4.112032471
+AF,Litter,Leucine aminopeptidase (LAP),4.044884571
+AF,Topsoil,Leucine aminopeptidase (LAP),4.077325565
+AF,Litter,Leucine aminopeptidase (LAP),4.078004492
+AF,Litter,Leucine aminopeptidase (LAP),4.097051689
+AF,Topsoil,Leucine aminopeptidase (LAP),4.106770725
+AF,Litter,Leucine aminopeptidase (LAP),4.030991317
+AF,Topsoil,Leucine aminopeptidase (LAP),4.063878785
+AF,Litter,Leucine aminopeptidase (LAP),4.141549447
+AF,Topsoil,Leucine aminopeptidase (LAP),4.111595048
+AF,Litter,Leucine aminopeptidase (LAP),4.071877486
+AF,Topsoil,Leucine aminopeptidase (LAP),4.078909013
+AF,Litter,Leucine aminopeptidase (LAP),4.046753628
+AF,Topsoil,Leucine aminopeptidase (LAP),4.069142276
+AF,Litter,Leucine aminopeptidase (LAP),4.026475815
+AF,Topsoil,Leucine aminopeptidase (LAP),4.045819536
+AF,Litter,Leucine aminopeptidase (LAP),4.06777186
+AF,Topsoil,Leucine aminopeptidase (LAP),4.099711717
+AF,Litter,Leucine aminopeptidase (LAP),4.131735478
+AF,Topsoil,Leucine aminopeptidase (LAP),4.137081101
+AF,Litter,Leucine aminopeptidase (LAP),4.133663196
+AF,Topsoil,Leucine aminopeptidase (LAP),4.110500653
+MF,Litter,Leucine aminopeptidase (LAP),4.040196587
+MF,Topsoil,Leucine aminopeptidase (LAP),4.055121423
+MF,Litter,Leucine aminopeptidase (LAP),4.033596266
+MF,Topsoil,Leucine aminopeptidase (LAP),4.015458357
+MF,Litter,Leucine aminopeptidase (LAP),4.075512834
+MF,Topsoil,Leucine aminopeptidase (LAP),4.036666119
+MF,Litter,Leucine aminopeptidase (LAP),4.073014953
+MF,Topsoil,Leucine aminopeptidase (LAP),4.040666375
+MF,Litter,Leucine aminopeptidase (LAP),3.997966193
+MF,Topsoil,Leucine aminopeptidase (LAP),4.028379565
+MF,Litter,Leucine aminopeptidase (LAP),4.023613377
+MF,Litter,Leucine aminopeptidase (LAP),4.032649797
+MF,Topsoil,Leucine aminopeptidase (LAP),4.018824364
+MF,Litter,Leucine aminopeptidase (LAP),4.030754167
+MF,Topsoil,Leucine aminopeptidase (LAP),4.035014293
+MF,Litter,Leucine aminopeptidase (LAP),4.073014953
+MF,Topsoil,Leucine aminopeptidase (LAP),4.065483652
+MF,Litter,Leucine aminopeptidase (LAP),3.976413281
+MF,Topsoil,Leucine aminopeptidase (LAP),3.972649854
+MF,Topsoil,Leucine aminopeptidase (LAP),4.014012306
+MF,Litter,Leucine aminopeptidase (LAP),3.957963197
+MF,Topsoil,Leucine aminopeptidase (LAP),3.960001813
+RM,Litter,Acid phosphatase (ACP),2.57514253
+RM,Topsoil,Acid phosphatase (ACP),2.564698946
+RM,Litter,Acid phosphatase (ACP),2.526598018
+RM,Topsoil,Acid phosphatase (ACP),2.527927137
+RM,Litter,Acid phosphatase (ACP),2.520728817
+RM,Topsoil,Acid phosphatase (ACP),2.536918598
+RM,Topsoil,Acid phosphatase (ACP),2.52526713
+RM,Litter,Acid phosphatase (ACP),2.536128477
+RM,Topsoil,Acid phosphatase (ACP),2.564698946
+RM,Litter,Acid phosphatase (ACP),2.538759787
+RM,Topsoil,Acid phosphatase (ACP),2.512669438
+RM,Litter,Acid phosphatase (ACP),2.525799698
+RM,Topsoil,Acid phosphatase (ACP),2.58623026
+RM,Topsoil,Acid phosphatase (ACP),2.568277325
+RM,Litter,Acid phosphatase (ACP),2.508886049
+RM,Topsoil,Acid phosphatase (ACP),2.495804674
+RM,Litter,Acid phosphatase (ACP),2.612203233
+RM,Topsoil,Acid phosphatase (ACP),2.604850964
+RM,Litter,Acid phosphatase (ACP),2.498817639
+RM,Topsoil,Acid phosphatase (ACP),2.546873122
+RM,Litter,Acid phosphatase (ACP),2.530844995
+RM,Topsoil,Acid phosphatase (ACP),2.516438566
+NF,Litter,Acid phosphatase (ACP),2.600907538
+NF,Topsoil,Acid phosphatase (ACP),2.590730953
+NF,Litter,Acid phosphatase (ACP),2.582967116
+NF,Topsoil,Acid phosphatase (ACP),2.598434977
+NF,Litter,Acid phosphatase (ACP),2.64958726
+NF,Topsoil,Acid phosphatase (ACP),2.649822449
+NF,Litter,Acid phosphatase (ACP),2.549476347
+NF,Topsoil,Acid phosphatase (ACP),2.551554059
+NF,Litter,Acid phosphatase (ACP),2.53639192
+NF,Topsoil,Acid phosphatase (ACP),2.548696091
+NF,Litter,Acid phosphatase (ACP),2.616831866
+NF,Topsoil,Acid phosphatase (ACP),2.633941165
+NF,Litter,Acid phosphatase (ACP),2.578936266
+NF,Litter,Acid phosphatase (ACP),2.597692014
+NF,Topsoil,Acid phosphatase (ACP),2.539022538
+NF,Litter,Acid phosphatase (ACP),2.657552832
+NF,Topsoil,Acid phosphatase (ACP),2.652171306
+NF,Litter,Acid phosphatase (ACP),2.635135084
+NF,Topsoil,Acid phosphatase (ACP),2.640134033
+NF,Litter,Acid phosphatase (ACP),2.666843576
+NF,Topsoil,Acid phosphatase (ACP),2.663601625
+NF,Litter,Acid phosphatase (ACP),2.542955534
+NF,Topsoil,Acid phosphatase (ACP),2.580197653
+AF,Litter,Acid phosphatase (ACP),2.783459918
+AF,Topsoil,Acid phosphatase (ACP),2.775403506
+AF,Litter,Acid phosphatase (ACP),2.683807157
+AF,Topsoil,Acid phosphatase (ACP),2.69443379
+AF,Litter,Acid phosphatase (ACP),2.673066384
+AF,Litter,Acid phosphatase (ACP),2.759093312
+AF,Topsoil,Acid phosphatase (ACP),2.740366935
+AF,Litter,Acid phosphatase (ACP),2.727394877
+AF,Topsoil,Acid phosphatase (ACP),2.710939528
+AF,Litter,Acid phosphatase (ACP),2.664297214
+AF,Topsoil,Acid phosphatase (ACP),2.705393683
+AF,Litter,Acid phosphatase (ACP),2.760778449
+AF,Topsoil,Acid phosphatase (ACP),2.744011964
+AF,Litter,Acid phosphatase (ACP),2.714031819
+AF,Topsoil,Acid phosphatase (ACP),2.700264199
+AF,Litter,Acid phosphatase (ACP),2.719310743
+AF,Topsoil,Acid phosphatase (ACP),2.740366935
+AF,Litter,Acid phosphatase (ACP),2.728916984
+AF,Topsoil,Acid phosphatase (ACP),2.714031819
+AF,Litter,Acid phosphatase (ACP),2.676735784
+AF,Topsoil,Acid phosphatase (ACP),2.674214519
+AF,Litter,Acid phosphatase (ACP),2.770413259
+AF,Topsoil,Acid phosphatase (ACP),2.74785698
+MF,Litter,Acid phosphatase (ACP),2.554403882
+MF,Topsoil,Acid phosphatase (ACP),2.574382053
+MF,Litter,Acid phosphatase (ACP),2.58623026
+MF,Topsoil,Acid phosphatase (ACP),2.6026347
+MF,Litter,Acid phosphatase (ACP),2.54007285
+MF,Topsoil,Acid phosphatase (ACP),2.548956244
+MF,Litter,Acid phosphatase (ACP),2.642505731
+MF,Topsoil,Acid phosphatase (ACP),2.613911012
+MF,Litter,Acid phosphatase (ACP),2.642268814
+MF,Topsoil,Acid phosphatase (ACP),2.634180063
+MF,Litter,Acid phosphatase (ACP),2.54112206
+MF,Litter,Acid phosphatase (ACP),2.555696576
+MF,Topsoil,Acid phosphatase (ACP),2.587982937
+MF,Litter,Acid phosphatase (ACP),2.543217184
+MF,Topsoil,Acid phosphatase (ACP),2.574382053
+MF,Litter,Acid phosphatase (ACP),2.601894853
+MF,Topsoil,Acid phosphatase (ACP),2.572859361
+MF,Litter,Acid phosphatase (ACP),2.553886336
+MF,Topsoil,Acid phosphatase (ACP),2.587232166
+MF,Topsoil,Acid phosphatase (ACP),2.549476347
+MF,Litter,Acid phosphatase (ACP),2.647939383
+MF,Topsoil,Acid phosphatase (ACP),2.606571334

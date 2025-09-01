@@ -1,0 +1,451 @@
+﻿land_cover,substrate,parameter,value
+RM,Litter,Enzyme C:N,1.006523361
+RM,Topsoil,Enzyme C:N,0.996211812
+RM,Litter,Enzyme C:N,0.982000843
+RM,Topsoil,Enzyme C:N,0.977818768
+RM,Litter,Enzyme C:N,0.995104893
+RM,Topsoil,Enzyme C:N,0.992449798
+RM,Topsoil,Enzyme C:N,0.978551537
+RM,Litter,Enzyme C:N,0.980896096
+RM,Topsoil,Enzyme C:N,0.975723205
+RM,Litter,Enzyme C:N,0.97976534
+RM,Topsoil,Enzyme C:N,1.010683426
+RM,Litter,Enzyme C:N,0.994974932
+RM,Topsoil,Enzyme C:N,0.996240995
+RM,Topsoil,Enzyme C:N,0.990819843
+RM,Litter,Enzyme C:N,0.990823568
+RM,Topsoil,Enzyme C:N,0.992351773
+RM,Litter,Enzyme C:N,0.973891836
+RM,Topsoil,Enzyme C:N,0.983597012
+RM,Litter,Enzyme C:N,1.005677531
+RM,Topsoil,Enzyme C:N,0.997451963
+RM,Litter,Enzyme C:N,0.981734259
+RM,Topsoil,Enzyme C:N,0.991388407
+NF,Litter,Enzyme C:N,0.989469326
+NF,Topsoil,Enzyme C:N,0.98887597
+NF,Litter,Enzyme C:N,0.980180743
+NF,Topsoil,Enzyme C:N,0.978816894
+NF,Litter,Enzyme C:N,1.00368853
+NF,Topsoil,Enzyme C:N,1.009229885
+NF,Litter,Enzyme C:N,0.991232995
+NF,Topsoil,Enzyme C:N,0.99110845
+NF,Litter,Enzyme C:N,0.976380285
+NF,Topsoil,Enzyme C:N,0.985055657
+NF,Litter,Enzyme C:N,0.991080047
+NF,Topsoil,Enzyme C:N,0.989914368
+NF,Litter,Enzyme C:N,0.995392675
+NF,Litter,Enzyme C:N,0.996296916
+NF,Topsoil,Enzyme C:N,0.986430625
+NF,Litter,Enzyme C:N,1.012966546
+NF,Topsoil,Enzyme C:N,1.007378374
+NF,Litter,Enzyme C:N,0.9913252
+NF,Topsoil,Enzyme C:N,0.991409039
+NF,Litter,Enzyme C:N,0.989456875
+NF,Topsoil,Enzyme C:N,1.001100682
+NF,Litter,Enzyme C:N,0.996193056
+NF,Topsoil,Enzyme C:N,0.999907781
+AF,Litter,Enzyme C:N,1.012378704
+AF,Topsoil,Enzyme C:N,1.013566022
+AF,Litter,Enzyme C:N,1.020931833
+AF,Topsoil,Enzyme C:N,1.018974977
+AF,Litter,Enzyme C:N,1.004204065
+AF,Litter,Enzyme C:N,1.017588048
+AF,Topsoil,Enzyme C:N,1.013569604
+AF,Litter,Enzyme C:N,1.021512053
+AF,Topsoil,Enzyme C:N,1.021409422
+AF,Litter,Enzyme C:N,0.998800481
+AF,Topsoil,Enzyme C:N,1.008370271
+AF,Litter,Enzyme C:N,1.017891091
+AF,Topsoil,Enzyme C:N,1.015284054
+AF,Litter,Enzyme C:N,1.00587961
+AF,Topsoil,Enzyme C:N,1.007250326
+AF,Litter,Enzyme C:N,1.003777844
+AF,Topsoil,Enzyme C:N,1.011251108
+AF,Litter,Enzyme C:N,1.010451921
+AF,Topsoil,Enzyme C:N,1.003777019
+AF,Litter,Enzyme C:N,1.001391376
+AF,Topsoil,Enzyme C:N,1.009525213
+AF,Litter,Enzyme C:N,1.012164461
+AF,Topsoil,Enzyme C:N,1.017853707
+SF,Litter,Enzyme C:N,1.006576079
+SF,Topsoil,Enzyme C:N,1.005771466
+SF,Litter,Enzyme C:N,0.99078491
+SF,Topsoil,Enzyme C:N,1.003705096
+SF,Litter,Enzyme C:N,0.99025839
+SF,Topsoil,Enzyme C:N,0.994979603
+SF,Litter,Enzyme C:N,1.025314024
+SF,Topsoil,Enzyme C:N,1.018791627
+SF,Litter,Enzyme C:N,1.005964165
+SF,Topsoil,Enzyme C:N,1.001747069
+SF,Litter,Enzyme C:N,1.005907853
+SF,Litter,Enzyme C:N,0.984130382
+SF,Topsoil,Enzyme C:N,0.990177849
+SF,Litter,Enzyme C:N,1.003501763
+SF,Topsoil,Enzyme C:N,1.002134513
+SF,Litter,Enzyme C:N,0.996411428
+SF,Topsoil,Enzyme C:N,1.001619782
+SF,Litter,Enzyme C:N,1.017672097
+SF,Topsoil,Enzyme C:N,1.020387106
+SF,Topsoil,Enzyme C:N,1.005723449
+SF,Litter,Enzyme C:N,1.01171737
+SF,Topsoil,Enzyme C:N,1.015065657
+RM,Litter,Enzyme C:P,1.911001818
+RM,Topsoil,Enzyme C:P,1.904923663
+RM,Litter,Enzyme C:P,1.920483146
+RM,Topsoil,Enzyme C:P,1.915964328
+RM,Litter,Enzyme C:P,1.937497231
+RM,Topsoil,Enzyme C:P,1.924840548
+RM,Topsoil,Enzyme C:P,1.909733367
+RM,Litter,Enzyme C:P,1.912513107
+RM,Topsoil,Enzyme C:P,1.89652285
+RM,Litter,Enzyme C:P,1.909136964
+RM,Topsoil,Enzyme C:P,1.964561936
+RM,Litter,Enzyme C:P,1.936103329
+RM,Topsoil,Enzyme C:P,1.903205159
+RM,Topsoil,Enzyme C:P,1.905962497
+RM,Litter,Enzyme C:P,1.95558723
+RM,Topsoil,Enzyme C:P,1.969293425
+RM,Litter,Enzyme C:P,1.840985117
+RM,Topsoil,Enzyme C:P,1.865437192
+RM,Litter,Enzyme C:P,1.967338154
+RM,Topsoil,Enzyme C:P,1.918583019
+RM,Litter,Enzyme C:P,1.921135275
+RM,Topsoil,Enzyme C:P,1.943791778
+NF,Litter,Enzyme C:P,1.846484103
+NF,Topsoil,Enzyme C:P,1.855202302
+NF,Litter,Enzyme C:P,1.856420064
+NF,Topsoil,Enzyme C:P,1.847996516
+NF,Litter,Enzyme C:P,1.836819079
+NF,Topsoil,Enzyme C:P,1.844183448
+NF,Litter,Enzyme C:P,1.878211097
+NF,Topsoil,Enzyme C:P,1.878208079
+NF,Litter,Enzyme C:P,1.896132075
+NF,Topsoil,Enzyme C:P,1.889376241
+NF,Litter,Enzyme C:P,1.869604321
+NF,Topsoil,Enzyme C:P,1.850475862
+NF,Litter,Enzyme C:P,1.873530567
+NF,Litter,Enzyme C:P,1.860266332
+NF,Topsoil,Enzyme C:P,1.892739275
+NF,Litter,Enzyme C:P,1.837269014
+NF,Topsoil,Enzyme C:P,1.847685104
+NF,Litter,Enzyme C:P,1.842799706
+NF,Topsoil,Enzyme C:P,1.833611308
+NF,Litter,Enzyme C:P,1.815197549
+NF,Topsoil,Enzyme C:P,1.830979229
+NF,Litter,Enzyme C:P,1.891083484
+NF,Topsoil,Enzyme C:P,1.8781941
+AF,Litter,Enzyme C:P,1.79789845
+AF,Topsoil,Enzyme C:P,1.805145592
+AF,Litter,Enzyme C:P,1.875218748
+AF,Topsoil,Enzyme C:P,1.86552538
+AF,Litter,Enzyme C:P,1.855026703
+AF,Litter,Enzyme C:P,1.826087396
+AF,Topsoil,Enzyme C:P,1.834029161
+AF,Litter,Enzyme C:P,1.825002169
+AF,Topsoil,Enzyme C:P,1.840517172
+AF,Litter,Enzyme C:P,1.852754032
+AF,Topsoil,Enzyme C:P,1.836165947
+AF,Litter,Enzyme C:P,1.826167509
+AF,Topsoil,Enzyme C:P,1.826594207
+AF,Litter,Enzyme C:P,1.817700731
+AF,Topsoil,Enzyme C:P,1.834102955
+AF,Litter,Enzyme C:P,1.827261474
+AF,Topsoil,Enzyme C:P,1.821398431
+AF,Litter,Enzyme C:P,1.826490563
+AF,Topsoil,Enzyme C:P,1.834335068
+AF,Litter,Enzyme C:P,1.85182713
+AF,Topsoil,Enzyme C:P,1.865171372
+AF,Litter,Enzyme C:P,1.798525558
+AF,Topsoil,Enzyme C:P,1.822316304
+SF,Litter,Enzyme C:P,1.917278723
+SF,Topsoil,Enzyme C:P,1.908693255
+SF,Litter,Enzyme C:P,1.891782908
+SF,Topsoil,Enzyme C:P,1.891770239
+SF,Litter,Enzyme C:P,1.933825837
+SF,Topsoil,Enzyme C:P,1.923267454
+SF,Litter,Enzyme C:P,1.891152884
+SF,Topsoil,Enzyme C:P,1.897508564
+SF,Litter,Enzyme C:P,1.848958902
+SF,Topsoil,Enzyme C:P,1.85836236
+SF,Litter,Enzyme C:P,1.952683874
+SF,Litter,Enzyme C:P,1.897457461
+SF,Topsoil,Enzyme C:P,1.881405636
+SF,Litter,Enzyme C:P,1.932045512
+SF,Topsoil,Enzyme C:P,1.905546024
+SF,Litter,Enzyme C:P,1.885338905
+SF,Topsoil,Enzyme C:P,1.910458505
+SF,Litter,Enzyme C:P,1.930160284
+SF,Topsoil,Enzyme C:P,1.913796049
+SF,Topsoil,Enzyme C:P,1.913969475
+SF,Litter,Enzyme C:P,1.845425174
+SF,Topsoil,Enzyme C:P,1.884721412
+RM,Litter,Enzyme N:P,1.898616457
+RM,Topsoil,Enzyme N:P,1.912167312
+RM,Litter,Enzyme N:P,1.955683805
+RM,Topsoil,Enzyme N:P,1.959426829
+RM,Litter,Enzyme N:P,1.947028141
+RM,Topsoil,Enzyme N:P,1.939484044
+RM,Topsoil,Enzyme N:P,1.951592016
+RM,Litter,Enzyme N:P,1.949761157
+RM,Topsoil,Enzyme N:P,1.943709896
+RM,Litter,Enzyme N:P,1.948565526
+RM,Topsoil,Enzyme N:P,1.943795541
+RM,Litter,Enzyme N:P,1.945881515
+RM,Topsoil,Enzyme N:P,1.910386311
+RM,Topsoil,Enzyme N:P,1.923621645
+RM,Litter,Enzyme N:P,1.973698743
+RM,Topsoil,Enzyme N:P,1.984471111
+RM,Litter,Enzyme N:P,1.890338382
+RM,Topsoil,Enzyme N:P,1.896546218
+RM,Litter,Enzyme N:P,1.956231588
+RM,Topsoil,Enzyme N:P,1.923484127
+RM,Litter,Enzyme N:P,1.956879123
+RM,Topsoil,Enzyme N:P,1.960676325
+NF,Litter,Enzyme N:P,1.86613577
+NF,Topsoil,Enzyme N:P,1.876071781
+NF,Litter,Enzyme N:P,1.893956882
+NF,Topsoil,Enzyme N:P,1.887990008
+NF,Litter,Enzyme N:P,1.830068814
+NF,Topsoil,Enzyme N:P,1.827317516
+NF,Litter,Enzyme N:P,1.894823021
+NF,Topsoil,Enzyme N:P,1.895058083
+NF,Litter,Enzyme N:P,1.942001599
+NF,Topsoil,Enzyme N:P,1.918040091
+NF,Litter,Enzyme N:P,1.886431199
+NF,Topsoil,Enzyme N:P,1.869329229
+NF,Litter,Enzyme N:P,1.882202486
+NF,Litter,Enzyme N:P,1.867180659
+NF,Topsoil,Enzyme N:P,1.918775865
+NF,Litter,Enzyme N:P,1.813750929
+NF,Topsoil,Enzyme N:P,1.834152044
+NF,Litter,Enzyme N:P,1.858925512
+NF,Topsoil,Enzyme N:P,1.849500293
+NF,Litter,Enzyme N:P,1.834539326
+NF,Topsoil,Enzyme N:P,1.828966119
+NF,Litter,Enzyme N:P,1.898310245
+NF,Topsoil,Enzyme N:P,1.878367322
+AF,Litter,Enzyme N:P,1.775914924
+AF,Topsoil,Enzyme N:P,1.780984714
+AF,Litter,Enzyme N:P,1.836771749
+AF,Topsoil,Enzyme N:P,1.830786253
+AF,Litter,Enzyme N:P,1.847260699
+AF,Litter,Enzyme N:P,1.7945252
+AF,Topsoil,Enzyme N:P,1.809475297
+AF,Litter,Enzyme N:P,1.786569393
+AF,Topsoil,Enzyme N:P,1.801938706
+AF,Litter,Enzyme N:P,1.854979115
+AF,Topsoil,Enzyme N:P,1.820924317
+AF,Litter,Enzyme N:P,1.794069646
+AF,Topsoil,Enzyme N:P,1.799096716
+AF,Litter,Enzyme N:P,1.807075829
+AF,Topsoil,Enzyme N:P,1.820900831
+AF,Litter,Enzyme N:P,1.820384347
+AF,Topsoil,Enzyme N:P,1.801133682
+AF,Litter,Enzyme N:P,1.807597694
+AF,Topsoil,Enzyme N:P,1.827432818
+AF,Litter,Enzyme N:P,1.849254122
+AF,Topsoil,Enzyme N:P,1.847572847
+AF,Litter,Enzyme N:P,1.776910401
+AF,Topsoil,Enzyme N:P,1.790351886
+SF,Litter,Enzyme N:P,1.904752918
+SF,Topsoil,Enzyme N:P,1.89774051
+SF,Litter,Enzyme N:P,1.909377999
+SF,Topsoil,Enzyme N:P,1.884786923
+SF,Litter,Enzyme N:P,1.952849738
+SF,Topsoil,Enzyme N:P,1.932971739
+SF,Litter,Enzyme N:P,1.844462125
+SF,Topsoil,Enzyme N:P,1.862508989
+SF,Litter,Enzyme N:P,1.837996786
+SF,Topsoil,Enzyme N:P,1.855121334
+SF,Litter,Enzyme N:P,1.941215459
+SF,Litter,Enzyme N:P,1.928054958
+SF,Topsoil,Enzyme N:P,1.900068395
+SF,Litter,Enzyme N:P,1.925303555
+SF,Topsoil,Enzyme N:P,1.901487275
+SF,Litter,Enzyme N:P,1.892128945
+SF,Topsoil,Enzyme N:P,1.907368983
+SF,Litter,Enzyme N:P,1.896642631
+SF,Topsoil,Enzyme N:P,1.875558832
+SF,Topsoil,Enzyme N:P,1.903077309
+SF,Litter,Enzyme N:P,1.824052082
+SF,Topsoil,Enzyme N:P,1.856748278
+RM,Litter,Relative C-limitation,0.826189121
+RM,Topsoil,Relative C-limitation,0.824056512
+RM,Litter,Relative C-limitation,0.823350326
+RM,Topsoil,Relative C-limitation,0.822284715
+RM,Litter,Relative C-limitation,0.826929732
+RM,Topsoil,Relative C-limitation,0.825351949
+RM,Topsoil,Relative C-limitation,0.821810696
+RM,Litter,Relative C-limitation,0.822432713
+RM,Topsoil,Relative C-limitation,0.820123538
+RM,Litter,Relative C-limitation,0.821940967
+RM,Topsoil,Relative C-limitation,0.831751888
+RM,Litter,Relative C-limitation,0.826781133
+RM,Topsoil,Relative C-limitation,0.823898805
+RM,Topsoil,Relative C-limitation,0.82333358
+RM,Litter,Relative C-limitation,0.827944214
+RM,Topsoil,Relative C-limitation,0.829424166
+RM,Litter,Relative C-limitation,0.814460909
+RM,Topsoil,Relative C-limitation,0.818352316
+RM,Litter,Relative C-limitation,0.831254005
+RM,Topsoil,Relative C-limitation,0.825527252
+RM,Litter,Relative C-limitation,0.823370541
+RM,Topsoil,Relative C-limitation,0.826946962
+NF,Litter,Relative C-limitation,0.81740954
+NF,Topsoil,Relative C-limitation,0.818169953
+NF,Litter,Relative C-limitation,0.816948904
+NF,Topsoil,Relative C-limitation,0.815914341
+NF,Litter,Relative C-limitation,0.818637783
+NF,Topsoil,Relative C-limitation,0.82020211
+NF,Litter,Relative C-limitation,0.820756095
+NF,Topsoil,Relative C-limitation,0.820736753
+NF,Litter,Relative C-limitation,0.820187694
+NF,Topsoil,Relative C-limitation,0.820878251
+NF,Litter,Relative C-limitation,0.819904396
+NF,Topsoil,Relative C-limitation,0.817868389
+NF,Litter,Relative C-limitation,0.82094195
+NF,Litter,Relative C-limitation,0.819798993
+NF,Topsoil,Relative C-limitation,0.821409564
+NF,Litter,Relative C-limitation,0.820091495
+NF,Topsoil,Relative C-limitation,0.820263002
+NF,Litter,Relative C-limitation,0.817333496
+NF,Topsoil,Relative C-limitation,0.816442022
+NF,Litter,Relative C-limitation,0.814312686
+NF,Topsoil,Relative C-limitation,0.817667716
+NF,Litter,Relative C-limitation,0.822742871
+NF,Topsoil,Relative C-limitation,0.822077483
+AF,Litter,Relative C-limitation,0.816091647
+AF,Topsoil,Relative C-limitation,0.816999411
+AF,Litter,Relative C-limitation,0.824967216
+AF,Topsoil,Relative C-limitation,0.823743469
+AF,Litter,Relative C-limitation,0.820495418
+AF,Litter,Relative C-limitation,0.819690517
+AF,Topsoil,Relative C-limitation,0.819864724
+AF,Litter,Relative C-limitation,0.820175781
+AF,Topsoil,Relative C-limitation,0.821684106
+AF,Litter,Relative C-limitation,0.819451234
+AF,Topsoil,Relative C-limitation,0.819286037
+AF,Litter,Relative C-limitation,0.819744225
+AF,Topsoil,Relative C-limitation,0.819392014
+AF,Litter,Relative C-limitation,0.817081797
+AF,Topsoil,Relative C-limitation,0.818912974
+AF,Litter,Relative C-limitation,0.817709208
+AF,Topsoil,Relative C-limitation,0.818266528
+AF,Litter,Relative C-limitation,0.818649036
+AF,Topsoil,Relative C-limitation,0.818406945
+AF,Litter,Relative C-limitation,0.819756086
+AF,Topsoil,Relative C-limitation,0.82228435
+AF,Litter,Relative C-limitation,0.8161221
+AF,Topsoil,Relative C-limitation,0.819358037
+SF,Litter,Relative C-limitation,0.826784492
+SF,Topsoil,Relative C-limitation,0.825859049
+SF,Litter,Relative C-limitation,0.821984699
+SF,Topsoil,Relative C-limitation,0.823948639
+SF,Litter,Relative C-limitation,0.825854063
+SF,Topsoil,Relative C-limitation,0.825589577
+SF,Litter,Relative C-limitation,0.827138319
+SF,Topsoil,Relative C-limitation,0.82676375
+SF,Litter,Relative C-limitation,0.820172415
+SF,Topsoil,Relative C-limitation,0.820445441
+SF,Litter,Relative C-limitation,0.829955199
+SF,Litter,Relative C-limitation,0.821505535
+SF,Topsoil,Relative C-limitation,0.820900987
+SF,Litter,Relative C-limitation,0.827694476
+SF,Topsoil,Relative C-limitation,0.825013414
+SF,Litter,Relative C-limitation,0.822228734
+SF,Topsoil,Relative C-limitation,0.825397402
+SF,Litter,Relative C-limitation,0.829646213
+SF,Topsoil,Relative C-limitation,0.828531059
+SF,Topsoil,Relative C-limitation,0.826346513
+SF,Litter,Relative C-limitation,0.82070038
+SF,Topsoil,Relative C-limitation,0.824992923
+RM,Litter,N/P-limitation,37.3841336
+RM,Topsoil,N/P-limitation,37.27225103
+RM,Litter,N/P-limitation,36.99605741
+RM,Topsoil,N/P-limitation,36.95893565
+RM,Litter,N/P-limitation,37.09675118
+RM,Topsoil,N/P-limitation,37.12144986
+RM,Topsoil,N/P-limitation,37.00015129
+RM,Litter,N/P-limitation,37.01968214
+RM,Topsoil,N/P-limitation,37.02568414
+RM,Litter,N/P-limitation,37.02035815
+RM,Topsoil,N/P-limitation,37.1809945
+RM,Litter,N/P-limitation,37.10170173
+RM,Topsoil,N/P-limitation,37.28123803
+RM,Topsoil,N/P-limitation,37.19192986
+RM,Litter,N/P-limitation,36.95028306
+RM,Topsoil,N/P-limitation,36.90669999
+RM,Litter,N/P-limitation,37.28521187
+RM,Topsoil,N/P-limitation,37.29589258
+RM,Litter,N/P-limitation,37.09968103
+RM,Topsoil,N/P-limitation,37.22171109
+RM,Litter,N/P-limitation,36.98908436
+RM,Topsoil,N/P-limitation,37.01463586
+NF,Litter,N/P-limitation,37.47756168
+NF,Topsoil,N/P-limitation,37.42352049
+NF,Litter,N/P-limitation,37.2941843
+NF,Topsoil,N/P-limitation,37.31879728
+NF,Litter,N/P-limitation,37.72665636
+NF,Topsoil,N/P-limitation,37.76369224
+NF,Litter,N/P-limitation,37.33773858
+NF,Topsoil,N/P-limitation,37.33601046
+NF,Litter,N/P-limitation,37.03702868
+NF,Topsoil,N/P-limitation,37.194175
+NF,Litter,N/P-limitation,37.37976189
+NF,Topsoil,N/P-limitation,37.46284126
+NF,Litter,N/P-limitation,37.41978764
+NF,Litter,N/P-limitation,37.50092548
+NF,Topsoil,N/P-limitation,37.19658373
+NF,Litter,N/P-limitation,37.85138017
+NF,Topsoil,N/P-limitation,37.71984903
+NF,Litter,N/P-limitation,37.52304308
+NF,Topsoil,N/P-limitation,37.57297548
+NF,Litter,N/P-limitation,37.64453261
+NF,Topsoil,N/P-limitation,37.72206414
+NF,Litter,N/P-limitation,37.3414915
+NF,Topsoil,N/P-limitation,37.45853568
+AF,Litter,N/P-limitation,38.05699393
+AF,Topsoil,N/P-limitation,38.03325569
+AF,Litter,N/P-limitation,37.76050371
+AF,Topsoil,N/P-limitation,37.78424285
+AF,Litter,N/P-limitation,37.63768849
+AF,Litter,N/P-limitation,37.97399752
+AF,Topsoil,N/P-limitation,37.87686838
+AF,Litter,N/P-limitation,38.03282162
+AF,Topsoil,N/P-limitation,37.94837799
+AF,Litter,N/P-limitation,37.57491761
+AF,Topsoil,N/P-limitation,37.79448235
+AF,Litter,N/P-limitation,37.97766728
+AF,Topsoil,N/P-limitation,37.94003365
+AF,Litter,N/P-limitation,37.85951852
+AF,Topsoil,N/P-limitation,37.79012734
+AF,Litter,N/P-limitation,37.7789811
+AF,Topsoil,N/P-limitation,37.91313637
+AF,Litter,N/P-limitation,37.87476236
+AF,Topsoil,N/P-limitation,37.74111107
+AF,Litter,N/P-limitation,37.61565057
+AF,Topsoil,N/P-limitation,37.65782031
+AF,Litter,N/P-limitation,38.05060302
+AF,Topsoil,N/P-limitation,37.99793746
+SF,Litter,N/P-limitation,37.35375492
+SF,Topsoil,N/P-limitation,37.38531944
+SF,Litter,N/P-limitation,37.26253785
+SF,Topsoil,N/P-limitation,37.44185847
+SF,Litter,N/P-limitation,37.04703693
+SF,Topsoil,N/P-limitation,37.16437446
+SF,Litter,N/P-limitation,37.73782674
+SF,Topsoil,N/P-limitation,37.6182198
+SF,Litter,N/P-limitation,37.69373147
+SF,Topsoil,N/P-limitation,37.58638911
+SF,Litter,N/P-limitation,37.17248181
+SF,Litter,N/P-limitation,37.14042464
+SF,Topsoil,N/P-limitation,37.30665703
+SF,Litter,N/P-limitation,37.23916688
+SF,Topsoil,N/P-limitation,37.35104674
+SF,Litter,N/P-limitation,37.3736349
+SF,Topsoil,N/P-limitation,37.31949433
+SF,Litter,N/P-limitation,37.44106628
+SF,Topsoil,N/P-limitation,37.55821429
+SF,Topsoil,N/P-limitation,37.35845518
+SF,Litter,N/P-limitation,37.79109698
+SF,Topsoil,N/P-limitation,37.63268695
