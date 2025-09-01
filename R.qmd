@@ -28,7 +28,7 @@ header-includes:
 \newpage
 
 ```{r, message=FALSE, results='hide'}
-knitr::opts_knit$set(root.dir = '/Users/sujanbalami/Documents/Publications/Article_19_enzyme/Enzyme_data/R')
+knitr::opts_knit$set(root.dir = '~R')
 getwd()
 ```
 
