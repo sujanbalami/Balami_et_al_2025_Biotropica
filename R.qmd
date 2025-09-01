@@ -1,0 +1,1924 @@
+---
+title: "R codes"
+format:
+  pdf:
+    highlight-style: github
+    keep-tex: true
+    papersize: a4
+    fontsize: 10pt
+    margin:
+      x: 1.5cm
+      y: 1.5cm
+toc: true
+editor_options:
+  markdown:
+    wrap: sentence
+  code:
+    wrap: true
+number-sections: true
+
+header-includes:
+  - \usepackage{lineno}        
+  - \renewcommand{\linenumberfont}{\normalfont\small}
+  - \linespread{1.0}
+  - \usepackage{fontspec} 
+  - \setmainfont{Arial} 
+---
+
+\newpage
+
+```{r, message=FALSE, results='hide'}
+knitr::opts_knit$set(root.dir = '/Users/sujanbalami/Documents/Publications/Article_19_enzyme/Enzyme_data/R')
+getwd()
+```
+
+```{r load-required-library, message=FALSE, warning=FALSE}
+library(car)
+library(dplyr)
+library(sp)
+library(gstat)
+library(nlme)
+library(emmeans)
+library(scales)
+library(vegan)
+library(ggords)
+library(ggrepel)
+library(ggplot2)
+library(ggpubr)
+library(gridExtra)
+library(grid)
+```
+
+# Soil nutrients
+
+## Import data
+
+```{r load-soil-data}
+soil <- read.csv ("soil.csv", header = TRUE)
+soil$forest <- as.factor(soil$forest)
+coords <- data.frame(soil$latitude, soil$longitude)
+```
+
+## Semivariogram
+
+```{r test-spatial-correlation, results='hide'}
+shapiro.test(soil$SOC)
+shapiro.test(soil$N)
+shapiro.test(soil$P)
+shapiro.test(soil$C_N)
+shapiro.test(soil$C_P)
+shapiro.test(soil$N_P)
+
+#SOC
+mod_SOC <- lm(SOC~forest, data=soil)
+summary(mod_SOC)
+residuals_SOC <- resid(mod_SOC)
+shapiro.test(residuals_SOC)
+data_SOC <- data.frame(coords, residuals = residuals_SOC)
+coordinates(data_SOC) <- ~soil.longitude + soil.latitude 
+proj4string(data_SOC) <- CRS("+proj=longlat +datum=WGS84") 
+variog_SOC <- variogram(residuals ~ 1, data = data_SOC)
+semivariogram_SOC <- plot(
+  variog_SOC,
+  main = "C",
+  xlab = "Lag distance",
+  ylab = "Semivariance",
+  cex.main = 1,
+  font.main = 1,
+  cex.lab = 1.1,    
+  cex.axis = 1,     
+  pch = 1,          
+  col = "blue"      
+)
+
+# Soil total nitrogen
+mod_N <- lm(N~forest, data=soil)
+summary(mod_N)
+residuals_N <- resid(mod_N)
+shapiro.test(residuals_N)
+data_N <- data.frame(coords, residuals = residuals_N)
+coordinates(data_N) <- ~soil.longitude + soil.latitude 
+proj4string(data_N) <- CRS("+proj=longlat +datum=WGS84") 
+variog_N <- variogram(residuals ~ 1, data = data_N)
+semivariogram_N <- plot(
+  variog_N,
+  main = "N",
+  xlab = "Lag distance",
+  ylab = "Semivariance",
+  cex.main = 1,
+  font.main = 1,
+  cex.lab = 1.1,    
+  cex.axis = 1,     
+  pch = 1,          
+  col = "blue"      
+)
+
+# Soil total phosphorus
+mod_P <- lm(P~forest, data=soil)
+summary(mod_P)
+residuals_P <- resid(mod_P)
+shapiro.test(residuals_P)
+data_P <- data.frame(coords, residuals = residuals_P)
+coordinates(data_P) <- ~soil.longitude + soil.latitude 
+proj4string(data_P) <- CRS("+proj=longlat +datum=WGS84") 
+variog_P <- variogram(residuals ~ 1, data = data_P)
+semivariogram_P <- plot(
+  variog_P,
+  main = "P",
+  xlab = "Lag distance",
+  ylab = "Semivariance",
+  cex.main = 1,
+  font.main = 1,
+  cex.lab = 1.1,    
+  cex.axis = 1,     
+  pch = 1,          
+  col = "blue"      
+)
+
+# Soil C:N
+mod_CN <- lm(C_N~forest, data=soil)
+summary(mod_CN)
+residuals_CN <- resid(mod_CN)
+shapiro.test(residuals_CN)
+data_CN <- data.frame(coords, residuals = residuals_CN)
+coordinates(data_CN) <- ~soil.longitude + soil.latitude 
+proj4string(data_CN) <- CRS("+proj=longlat +datum=WGS84") 
+variog_CN <- variogram(residuals ~ 1, data = data_SOC)
+semivariogram_CN <- plot(
+  variog_CN,
+  main = "C:N ratio",
+  xlab = "Lag distance",
+  ylab = "Semivariance",
+  cex.main = 1,
+  font.main = 1,
+  cex.lab = 1.1,    
+  cex.axis = 1,     
+  pch = 1,          
+  col = "blue"      
+)
+
+# Soil C:P
+mod_CP <- lm(C_P~forest, data=soil)
+summary(mod_CP)
+residuals_CP <- resid(mod_CP)
+shapiro.test(residuals_CP)
+data_CP <- data.frame(coords, residuals = residuals_CP)
+coordinates(data_CP) <- ~soil.longitude + soil.latitude 
+proj4string(data_CP) <- CRS("+proj=longlat +datum=WGS84") 
+variog_CP <- variogram(residuals ~ 1, data = data_CP)
+semivariogram_CP <- plot(
+  variog_CP,
+  main = "C:P ratio",
+  xlab = "Lag distance",
+  ylab = "Semivariance",
+  cex.main = 1,
+  font.main = 1,
+  cex.lab = 1.1,    
+  cex.axis = 1,     
+  pch = 1,          
+  col = "blue"      
+)
+
+# Soil N:P
+mod_NP <- lm(N_P~forest, data=soil)
+summary(mod_NP)
+residuals_NP <- resid(mod_NP)
+shapiro.test(residuals_NP)
+data_NP <- data.frame(coords, residuals = residuals_NP)
+coordinates(data_NP) <- ~soil.longitude + soil.latitude 
+proj4string(data_NP) <- CRS("+proj=longlat +datum=WGS84") 
+variog_NP <- variogram(residuals ~ 1, data = data_NP)
+semivariogram_NP <- plot(
+  variog_NP,
+  main = "N:P ratio",
+  xlab = "Lag distance",
+  ylab = "Semivariance",
+  cex.main = 1.2,
+  font.main = 1,
+  cex.lab = 1.1,    
+  cex.axis = 1,     
+  pch = 1,          
+  col = "blue"      
+)
+
+```
+
+## Figure S2
+
+```{r plot-variogram, eval=FALSE}
+combine_semivariogram_plot <- grid.arrange(
+  semivariogram_SOC,
+  semivariogram_N,
+  semivariogram_P,
+  semivariogram_CN,
+  semivariogram_CP, 
+  semivariogram_NP, 
+  nrow = 2, 
+  ncol = 3)
+ggsave(
+  "Figures/Figure_S3.tiff", 
+  plot = combine_semivariogram_plot, 
+  dpi = 600,
+  height = 5, 
+  width = 9)
+
+```
+
+## Regression
+
+```{r regression-soilNutrients , results='hide', warning=FALSE, message=FALSE}
+soil$forest <- factor(soil$forest, levels = c("RM", "NR", "RP", "MF"))
+mod_SOC <- glm(SOC ~ forest, data = soil, family = Gamma(link = "log"))
+car::Anova(mod_SOC, test = "LR")
+shapiro.test(residuals(mod_SOC))
+emm_SOC <- emmeans(mod_SOC, ~ forest, type = "response")
+emm_df_SOC <- as.data.frame(emm_SOC)
+Plot_SOC <- ggplot() +
+  geom_jitter(data = soil, 
+              aes(x = forest, 
+                  y = SOC), 
+              width = 0.002, 
+              alpha = 0.3, 
+              color = "gray70", 
+              size = 1.8) +
+  geom_point(data = emm_df_SOC, 
+             aes(x = forest, 
+                 y = response), 
+             size = 3, 
+             shape = 21, 
+             fill = "darkgreen", 
+             color = "darkgreen", 
+             stroke = 0.3) +
+  geom_errorbar(data = emm_df_SOC, 
+                aes(x = forest, 
+                    ymin = lower.CL, 
+                    ymax = upper.CL), 
+                width = 0.2, 
+                color = "darkgreen", 
+                linewidth = 0.4) +
+  ggtitle("C (mg/g)") +
+  ylab(NULL)+
+  xlab("Forest type") +
+  theme(legend.position = "none",
+        plot.title = element_text(size = 12, hjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        strip.text = element_text(size = 12, face = "bold"),
+        axis.line = element_line(size = 0.05),
+        panel.grid.major = element_line(color = "gray90", size = 0.2),
+        panel.grid.minor = element_line(color = "gray90", size = 0.2), 
+        panel.grid = element_blank(),
+        panel.background = element_rect(fill = "white", 
+                                        color = "black",
+                                        size = 0.5)) +
+  scale_y_continuous(expand = expansion(mult = c(0.05, 0.1)))
+
+# N
+mod_N <- glm(N ~ forest, data = soil, family = Gamma(link = "log"))
+shapiro.test(residuals(mod_N))
+emm_N <- emmeans(mod_N, ~ forest, type = "response")
+emm_df_N <- as.data.frame(emm_N)
+Plot_N <- ggplot() +
+  geom_jitter(data = soil, 
+              aes(x = forest, 
+                  y = N), 
+              width = 0.002, 
+              alpha = 0.3, 
+              color = "gray70", 
+              size = 1.8) +
+  geom_point(data = emm_df_N, 
+             aes(x = forest, 
+                 y = response), 
+             size = 3, 
+             shape = 21, 
+             fill = "darkgreen", 
+             color = "darkgreen", 
+             stroke = 0.3) +
+  geom_errorbar(data = emm_df_N, 
+                aes(x = forest, 
+                    ymin = lower.CL, 
+                    ymax = upper.CL), 
+                width = 0.2, 
+                color = "darkgreen", 
+                linewidth = 0.4) +
+  ggtitle("N (mg/g)") +
+  ylab(NULL) +
+  xlab("Forest type") +
+  theme(legend.position = "none",
+        plot.title = element_text(size = 12, hjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        strip.text = element_text(size = 12, face = "bold"),
+        axis.line = element_line(size = 0.05),
+        panel.grid.major = element_line(color = "gray90", size = 0.2),
+        panel.grid.minor = element_line(color = "gray90", size = 0.2), 
+        panel.grid = element_blank(),
+        panel.background = element_rect(fill = "white", 
+                                        color = "black", 
+                                        size = 0.5)) +
+  scale_y_continuous(expand = expansion(mult = c(0.05, 0.1)))
+
+# P
+mod_P <- glm(P ~ forest, data = soil, family = Gamma(link = "log"))
+shapiro.test(residuals(mod_P))
+emm_P <- emmeans(mod_P, ~ forest, type = "response")
+emm_df_P <- as.data.frame(emm_P)
+
+Plot_P <- ggplot() +
+  geom_jitter(data = soil, 
+              aes(x = forest, 
+                  y = P), 
+              width = 0.002, 
+              alpha = 0.3, 
+              color = "gray70", 
+              size = 1.8) +
+  geom_point(data = emm_df_P, 
+             aes(x = forest, 
+                 y = response), 
+             size = 3, 
+             shape = 21, 
+             fill = "darkgreen", 
+             color = "darkgreen", 
+             stroke = 0.3) +
+  geom_errorbar(data = emm_df_P, 
+                aes(x = forest, 
+                    ymin = lower.CL, ymax = upper.CL), 
+                width = 0.2, 
+                color = "darkgreen", 
+                linewidth = 0.4) +
+  ggtitle("P (mg/g)") +
+  ylab(NULL) +
+  xlab("Forest type") +
+  theme(legend.position = "none",
+        plot.title = element_text(size = 12, hjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        strip.text = element_text(size = 12, face = "bold"),
+        axis.line = element_line(size = 0.05),
+        panel.grid.major = element_line(color = "gray90", size = 0.2),
+        panel.grid.minor = element_line(color = "gray90", size = 0.2), 
+        panel.grid = element_blank(),
+        panel.background = element_rect(fill = "white", 
+                                        color = "black", 
+                                        size = 0.5)) +
+  scale_y_continuous(expand = expansion(mult = c(0.05, 0.1)))
+
+#CN
+mod_C_N <- glm(C_N ~ forest, data = soil, family = Gamma(link = "log"))
+shapiro.test(residuals(mod_C_N))
+emm_C_N <- emmeans(mod_C_N, ~ forest, type = "response")
+emm_df_C_N <- as.data.frame(emm_C_N)
+
+Plot_C_N <- ggplot() +
+  geom_jitter(data = soil, 
+              aes(x = forest, 
+                  y = C_N), 
+              width = 0.002, 
+              alpha = 0.3, 
+              color = "gray70", 
+              size = 1.8) +
+  geom_point(data = emm_df_C_N, 
+             aes(x = forest, 
+                 y = response), 
+             size = 3, 
+             shape = 21, 
+             fill = "darkgreen", 
+             color = "darkgreen", 
+             stroke = 0.3) +
+  geom_errorbar(data = emm_df_C_N, 
+                aes(x = forest, 
+                    ymin = lower.CL, 
+                    ymax = upper.CL), 
+                width = 0.2, 
+                color = "darkgreen", 
+                linewidth = 0.4) +
+  ggtitle("C:N ratio") +
+  ylab(NULL) +
+  xlab("Forest type") +
+  theme(legend.position = "none",
+        plot.title = element_text(size = 12, hjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        strip.text = element_text(size = 12, face = "bold"),
+        axis.line = element_line(size = 0.05),
+        panel.grid.major = element_line(color = "gray90", size = 0.2),
+        panel.grid.minor = element_line(color = "gray90", size = 0.2), 
+        panel.grid = element_blank(),
+        panel.background = element_rect(fill = "white", 
+                                        color = "black", 
+                                        size = 0.5)) +
+  scale_y_continuous(expand = expansion(mult = c(0.05, 0.1)))
+
+#CP
+mod_C_P <- glm(C_P ~ forest, data = soil, family = Gamma(link = "log"))
+shapiro.test(residuals(mod_C_P))
+emm_C_P <- emmeans(mod_C_P, ~ forest, type = "response")
+emm_df_C_P <- as.data.frame(emm_C_P)
+
+Plot_C_P <- ggplot() +
+  geom_jitter(data = soil, 
+              aes(x = forest, y = C_P), 
+              width = 0.002, 
+              alpha = 0.3, 
+              color = "gray70", 
+              size = 1.8) +
+  geom_point(data = emm_df_C_P, 
+             aes(x = forest, 
+                 y = response), 
+             size = 3, 
+             shape = 21, 
+             fill = "darkgreen", 
+             color = "darkgreen", 
+             stroke = 0.3) +
+  geom_errorbar(data = emm_df_C_P, 
+                aes(x = forest, 
+                    ymin = lower.CL, 
+                    ymax = upper.CL), 
+                width = 0.2, 
+                color = "darkgreen", 
+                linewidth = 0.4) +
+  ggtitle("C:P ratio") +
+  ylab(NULL) +
+  xlab("Forest type") +
+  theme(legend.position = "none",
+        plot.title = element_text(size = 12, hjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        strip.text = element_text(size = 12, face = "bold"),
+        axis.line = element_line(size = 0.05),
+        panel.grid.major = element_line(color = "gray90", size = 0.2),
+        panel.grid.minor = element_line(color = "gray90", size = 0.2), 
+        panel.grid = element_blank(),
+        panel.background = element_rect(fill = "white", 
+                                        color = "black", 
+                                        size = 0.5)) +
+  scale_y_continuous(expand = expansion(mult = c(0.05, 0.1)))
+
+#NP
+mod_N_P <- glm(N_P ~ forest, data = soil, family = Gamma(link = "log"))
+shapiro.test(residuals(mod_N_P))
+emm_N_P <- emmeans(mod_N_P, ~ forest, type = "response")
+emm_df_N_P <- as.data.frame(emm_N_P)
+
+Plot_N_P <- ggplot() +
+  geom_jitter(data = soil, 
+              aes(x = forest, 
+                  y = N_P), 
+              width = 0.002, 
+              alpha = 0.3, 
+              color = "gray70", size = 1.8) +
+  geom_point(data = emm_df_N_P, 
+             aes(x = forest, 
+                 y = response), 
+             size = 3, 
+             shape = 21, 
+             fill = "darkgreen", 
+             color = "darkgreen", 
+             stroke = 0.3) +
+  geom_errorbar(data = emm_df_N_P, 
+                aes(x = forest, 
+                    ymin = lower.CL, 
+                    ymax = upper.CL), 
+                width = 0.2, 
+                color = "darkgreen", 
+                linewidth = 0.4) +
+  ggtitle("N:P ratio") +
+  ylab(NULL) +
+  xlab("Forest type") +
+  theme(legend.position = "none",
+        plot.title = element_text(size = 12, hjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        strip.text = element_text(size = 12, face = "bold"),
+        axis.line = element_line(size = 0.05),
+        panel.grid.major = element_line(color = "gray90", size = 0.2),
+        panel.grid.minor = element_line(color = "gray90", size = 0.2), 
+        panel.grid = element_blank(),
+        panel.background = element_rect(fill = "white", 
+                                        color = "black", 
+                                        size = 0.5)) +
+  scale_y_continuous(expand = expansion(mult = c(0.05, 0.1)),
+    labels = label_number(accuracy = 0.1)
+  )
+
+car::Anova(mod_SOC, test = "LR")
+car::Anova(mod_N, test = "LR")
+car::Anova(mod_P, test = "LR")
+car::Anova(mod_C_N, test = "LR")
+car::Anova(mod_C_P, test = "LR")
+car::Anova(mod_N_P, test = "LR")
+```
+
+## Figure 1
+
+```{r figure1, eval = FALSE}
+combine_plot_soil <- grid.arrange(
+  Plot_SOC, 
+  Plot_N, 
+  Plot_P, 
+  Plot_C_N, 
+  Plot_C_P, 
+  Plot_N_P,
+  nrow = 2, 
+  ncol = 3)
+ggsave(
+  "Revision_3/Figure_1.tiff", 
+       plot = combine_plot_soil, 
+  dpi = 600,
+  height = 5, 
+  width = 7 )
+```
+
+# Soil enzyme activities
+
+## Import data
+
+```{r dataRegression}
+Regression <- read.csv ("regression_soilEEAs.csv")
+Regression$land_cover=as.factor(Regression$land_cover)
+Regression$substrate=as.factor(Regression$substrate)
+Regression$land_cover <- factor(Regression$land_cover, 
+                                levels = c("RM", "NR", "RP", "MF"))
+Regression$substrate <- factor(Regression$substrate, 
+                               levels = c("Litter","Topsoil" ))
+Regression$substrate_combined <- paste(
+  Regression$land_cover, 
+  Regression$substrate, sep = " - ")
+Regression$latitude_jitter <- jitter(
+  Regression$latitude, amount = 0.00001)
+Regression$longitude_jitter <- jitter(
+  Regression$longitude, amount = 0.00001)
+coords_jitter <- data.frame(
+  Regression$latitude_jitter, 
+  Regression$longitude_jitter)
+```
+
+## Semivariogram
+
+```{r semivariogramEnzyme, results='hide'}
+shapiro.test(Regression$ln_CBH)
+shapiro.test(Regression$ln_BG)
+shapiro.test(Regression$ln_NAG)
+shapiro.test(Regression$ln_LAP)
+shapiro.test(Regression$ln_ACP)
+
+#CBH 
+mod_CBH <- lm(ln_CBH~land_cover*substrate, data=Regression)
+summary(mod_CBH)
+residuals_CBH <- resid(mod_CBH)
+shapiro.test(residuals_CBH)
+data_CBH <- data.frame(coords_jitter, residuals = residuals_CBH)
+coordinates(data_CBH) <- ~Regression.longitude_jitter + Regression.latitude_jitter 
+proj4string(data_CBH) <- CRS("+proj=longlat +datum=WGS84") 
+variog_CBH <- variogram(residuals ~ 1, data = data_CBH)
+semivariogram_CBH <- plot(
+  variog_CBH,
+  main = "CBH activity",
+  xlab = "Distance",
+  ylab = "Semivariance",
+  cex.main = 1.2,
+  font.main = 1,
+  cex.lab = 1.1,    
+  cex.axis = 1,     
+  pch = 1,          
+  col = "blue"      
+)
+
+#BG 
+mod_BG <- lm(ln_BG ~ land_cover * substrate, data = Regression)
+summary(mod_BG)
+residuals_BG <- resid(mod_BG)
+shapiro.test(residuals_BG)
+data_BG <- data.frame(coords_jitter, residuals = residuals_BG)
+coordinates(data_BG) <- ~Regression.longitude_jitter + Regression.latitude_jitter
+proj4string(data_BG) <- CRS("+proj=longlat +datum=WGS84")
+variog_BG <- variogram(residuals ~ 1, data = data_BG)
+semivariogram_BG <- plot(
+  variog_BG,
+  main = "BG activity",
+  xlab = "Distance",
+  ylab = "Semivariance",
+  cex.main = 1.2,
+  font.main = 1,
+  cex.lab = 1.1,
+  cex.axis = 1,
+  pch = 1,
+  col = "blue"
+)
+
+#NAG 
+mod_NAG <- lm(ln_NAG ~ land_cover * substrate, data = Regression)
+summary(mod_NAG)
+residuals_NAG <- resid(mod_NAG)
+shapiro.test(residuals_NAG)
+data_NAG <- data.frame(coords_jitter, residuals = residuals_NAG)
+coordinates(data_NAG) <- ~Regression.longitude_jitter + Regression.latitude_jitter
+proj4string(data_NAG) <- CRS("+proj=longlat +datum=WGS84")
+variog_NAG <- variogram(residuals ~ 1, data = data_NAG)
+semivariogram_NAG <- plot(
+  variog_NAG,
+  main = "NAG activity",
+  xlab = "Distance",
+  ylab = "Semivariance",
+  cex.main = 1.2,
+  cex.lab = 1.1,
+  cex.axis = 1,
+  pch = 1,
+  col = "blue"
+)
+
+# LAP
+mod_LAP <- lm(ln_LAP ~ land_cover * substrate, data = Regression)
+summary(mod_LAP)
+residuals_LAP <- resid(mod_LAP)
+shapiro.test(residuals_LAP)
+data_LAP <- data.frame(coords_jitter, residuals = residuals_LAP)
+coordinates(data_LAP) <- ~Regression.longitude_jitter + Regression.latitude_jitter
+proj4string(data_LAP) <- CRS("+proj=longlat +datum=WGS84")
+variog_LAP <- variogram(residuals ~ 1, data = data_LAP)
+semivariogram_LAP <- plot(
+  variog_LAP,
+  main = "LAP activity",
+  xlab = "Distance",
+  ylab = "Semivariance",
+  cex.main = 1.2,
+  font.main = 1,
+  cex.lab = 1.1,
+  cex.axis = 1,
+  pch = 1,
+  col = "blue"
+)
+
+# ACP
+mod_ACP <- lm(ln_ACP ~ land_cover * substrate, data = Regression)
+summary(mod_ACP)
+residuals_ACP <- resid(mod_ACP)
+shapiro.test(residuals_ACP)
+data_ACP <- data.frame(coords_jitter, residuals = residuals_ACP)
+coordinates(data_ACP) <- ~Regression.longitude_jitter + Regression.latitude_jitter
+proj4string(data_ACP) <- CRS("+proj=longlat +datum=WGS84")
+variog_ACP <- variogram(residuals ~ 1, data = data_ACP)
+semivariogram_ACP <- plot(
+  variog_ACP,
+  main = "ACP activity",
+  xlab = "Distance",
+  ylab = "Semivariance",
+  cex.main = 1.2,
+  font.main = 1,
+  cex.lab = 1.1,
+  cex.axis = 1,
+  pch = 1,
+  col = "blue"
+)
+```
+
+## Figure S3
+
+```{r figureS3, eval=FALSE}
+combine_semivariogram_plot <- grid.arrange(
+  semivariogram_CBH,
+  semivariogram_BG,
+  semivariogram_NAG,
+  semivariogram_LAP,
+  semivariogram_ACP, 
+  nrow = 2, 
+  ncol = 3)
+ggsave(
+  "Figures/Figure_S4.tiff", 
+  plot = combine_semivariogram_plot, 
+  dpi = 600, 
+  height = 5, 
+  width = 9)
+```
+
+## Regression
+
+```{r EnzymeActivites, results='hide', warning=FALSE, message=FALSE}
+shapiro.test(Regression$ln_CBH)
+mod_glm_CBH <- glm(ln_CBH ~ land_cover + substrate + land_cover:substrate, 
+                   data = Regression, 
+                   family = Gamma(link = "identity"))
+car::Anova(mod_glm_CBH, test = "LR")
+emm_CBH <- emmeans(mod_glm_CBH, ~ land_cover * substrate)
+pairwise_comparisons <- pairs(emm_CBH)
+emm_CBH <- emmeans(mod_glm_CBH, ~ land_cover * substrate, type = "response")
+emm_df_CBH <- as.data.frame(emm_CBH)
+emm_df_CBH$substrate_combined <- paste(
+  emm_df_CBH$land_cover, 
+  emm_df_CBH$substrate, sep = " - ")
+Regression$substrate_combined <- factor(
+  Regression$substrate_combined,
+  levels = c("RM - Litter", "RM - Topsoil",
+             "NR - Litter", "NR - Topsoil",
+             "RP - Litter", "RP - Topsoil",
+             "MF - Litter", "MF - Topsoil"))
+emm_df_CBH$substrate_combined <- factor(
+  emm_df_CBH$substrate_combined, 
+  levels = c("RM - Litter", "RM - Topsoil",
+             "NR - Litter", "NR - Topsoil",
+             "RP - Litter", "RP - Topsoil",
+             "MF - Litter", "MF - Topsoil"))
+Regression$land_cover <- factor(Regression$land_cover, 
+                                levels = c("RM", "NR", "RP", "MF"))
+emm_df_CBH$land_cover <- factor(emm_df_CBH$land_cover, 
+                                levels = c("RM", "NR", "RP", "MF"))
+Plot_CBH <- ggplot() +
+  geom_jitter(data = Regression, 
+              aes(x = land_cover, 
+                  y = ln_CBH, 
+                  group = substrate_combined), 
+              color = "grey60", 
+              alpha = 0.2, 
+              size = 1, 
+              position = position_dodge(0.5)) +
+  geom_point(data = emm_df_CBH, 
+             aes(x = land_cover, 
+                 y = emmean, 
+                 color = substrate_combined), 
+             size = 3, 
+             shape = 16, 
+             stroke = 0.1, 
+             alpha = 0.7, 
+             position = position_dodge(width = 0.5)) + 
+  geom_errorbar(data = emm_df_CBH, 
+                aes(x = land_cover, 
+                    ymin = lower.CL, 
+                    ymax = upper.CL, 
+                    color = substrate_combined),
+                width = 0.2, 
+                linewidth = 0.4, 
+                stroke = 0.5,
+                position = position_dodge(width = 0.5)) + 
+  ggtitle("Cellobiohydrolase (CBH)") +
+  ylab("ln(activity)") +
+  xlab("Forest type") +
+  theme(legend.position = "none",
+        plot.title = element_text(size = 12, hjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        strip.text = element_text(size = 12, face = "bold"),
+        axis.line = element_line(size = 0.05),
+        panel.grid.major = element_line(color = "gray90", size = 0.2),
+        panel.grid.minor = element_line(color = "gray90", size = 0.2), 
+        panel.grid = element_blank(),
+        panel.background = element_rect(fill = "white", 
+                                        color = "black",size = 0.5)) +
+  scale_y_continuous(expand = expansion(mult = c(0.05, 0.1))) +
+  scale_color_manual(
+    values = c("RP - Litter" = "cyan4", 
+               "RP - Topsoil" = "#F8766D",
+               "NR - Litter" = "cyan4", 
+               "NR - Topsoil" = "#F8766D", 
+              "RM - Litter" = "cyan4", 
+              "RM - Topsoil" = "#F8766D",
+              "MF - Litter" = "cyan4", 
+              "MF - Topsoil" = "#F8766D"))
+
+# BG
+shapiro.test(Regression$ln_BG)
+mod_glm_BG <- glm(ln_BG ~ land_cover + substrate + land_cover:substrate, 
+                   data = Regression, 
+                   family = Gamma(link = "identity"))
+car::Anova(mod_glm_BG, test = "LR")
+emm_BG <- emmeans(mod_glm_BG, ~ land_cover * substrate)
+pairwise_comparisons_BG <- pairs(emm_BG)
+emm_BG <- emmeans(mod_glm_BG, ~ land_cover * substrate, type = "response")
+emm_df_BG <- as.data.frame(emm_BG)
+emm_df_BG$substrate_combined <- paste(
+  emm_df_BG$land_cover, 
+  emm_df_BG$substrate, sep = " - ")
+emm_df_BG$substrate_combined <- factor(
+  emm_df_BG$substrate_combined, 
+  levels = levels(Regression$substrate_combined))
+emm_df_BG$land_cover <- factor(
+  emm_df_BG$land_cover, 
+  levels = levels(Regression$land_cover))
+Plot_BG <- ggplot() +
+  geom_jitter(data = Regression, 
+              aes(x = land_cover,
+                  y = ln_BG, 
+                  group = substrate_combined), 
+              color = "grey60", 
+              alpha = 0.2, 
+              size = 1, 
+              position = position_dodge(0.5)) +
+  geom_point(data = emm_df_BG, 
+             aes(x = land_cover, 
+                 y = emmean, 
+                 color = substrate_combined), 
+             size = 3, 
+             shape = 16, 
+             alpha = 0.7, 
+             position = position_dodge(0.5)) + 
+  geom_errorbar(data = emm_df_BG, 
+                aes(x = land_cover, 
+                    ymin = lower.CL, 
+                    ymax = upper.CL, 
+                    color = substrate_combined), 
+                width = 0.2, 
+                linewidth = 0.4, 
+                position = position_dodge(0.5)) +
+  ggtitle("β-1,4-Glucosidase (BG)") +
+  ylab("ln(activity)") +
+  xlab("Forest type") +
+  theme(legend.position = "none",
+        plot.title = element_text(size = 12, hjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        strip.text = element_text(size = 12),
+        axis.line = element_line(size = 0.05),
+        panel.grid.major = element_line(color = "gray90", size = 0.2),
+        panel.grid.minor = element_line(color = "gray90", size = 0.2),
+        panel.background = element_rect(fill = "white", 
+                                        color = "black", 
+                                        size = 0.5),
+        panel.grid = element_blank()) +
+  scale_y_continuous(expand = expansion(mult = c(0.05, 0.1))) +
+   scale_color_manual(
+    values = c("RP - Litter" = "cyan4", 
+               "RP - Topsoil" = "#F8766D",
+               "NR - Litter" = "cyan4", 
+               "NR - Topsoil" = "#F8766D", 
+              "RM - Litter" = "cyan4", 
+              "RM - Topsoil" = "#F8766D",
+              "MF - Litter" = "cyan4", 
+              "MF - Topsoil" = "#F8766D"))
+
+
+
+# NAG
+shapiro.test(Regression$ln_NAG)
+mod_glm_NAG <- glm(ln_NAG ~ land_cover + substrate + land_cover:substrate, 
+                   data = Regression, 
+                   family = Gamma(link = "identity"))
+car::Anova(mod_glm_NAG, test = "LR")
+emm_NAG <- emmeans(mod_glm_NAG, ~ land_cover * substrate)
+pairwise_comparisons_NAG <- pairs(emm_NAG)
+emm_NAG <- emmeans(mod_glm_NAG, ~ land_cover * substrate, type = "response")
+emm_df_NAG <- as.data.frame(emm_NAG)
+emm_df_NAG$substrate_combined <- paste(
+  emm_df_NAG$land_cover, 
+  emm_df_NAG$substrate, sep = " - ")
+emm_df_NAG$substrate_combined <- factor(
+  emm_df_NAG$substrate_combined, 
+  levels = levels(Regression$substrate_combined))
+emm_df_NAG$land_cover <- factor(
+  emm_df_NAG$land_cover, 
+  levels = levels(Regression$land_cover))
+Plot_NAG <- ggplot() +
+  geom_jitter(data = Regression, 
+              aes(x = land_cover, 
+                  y = ln_NAG, 
+                  group = substrate_combined), 
+              color = "grey60", 
+              alpha = 0.2, 
+              size = 1, 
+              position = position_dodge(0.5)) +
+  geom_point(data = emm_df_NAG, 
+             aes(x = land_cover, 
+                 y = emmean, 
+                 color = substrate_combined), 
+             size = 3, 
+             shape = 16, 
+             alpha = 0.7, 
+             position = position_dodge(0.5)) + 
+  geom_errorbar(data = emm_df_NAG, 
+                aes(x = land_cover, 
+                    ymin = lower.CL, 
+                    ymax = upper.CL, 
+                    color = substrate_combined), 
+                width = 0.2, 
+                linewidth = 0.4, 
+                position = position_dodge(0.5)) +
+  ggtitle("β-N-acetyl glucosaminidase (NAG)") +
+  ylab("ln(activity)") +
+  xlab("Forest type") +
+  theme(legend.position = "none",
+        plot.title = element_text(size = 12, hjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        strip.text = element_text(size = 12, face = "bold"),
+        axis.line = element_line(size = 0.05),
+        panel.grid.major = element_line(color = "gray90", size = 0.2),
+        panel.grid.minor = element_line(color = "gray90", size = 0.2),
+        panel.background = element_rect(fill = "white", 
+                                        color = "black", 
+                                        size = 0.5),
+        panel.grid = element_blank()) +
+  scale_y_continuous(expand = expansion(mult = c(0.05, 0.1))) +
+    scale_color_manual(
+    values = c("RP - Litter" = "cyan4", 
+               "RP - Topsoil" = "#F8766D",
+               "NR - Litter" = "cyan4", 
+               "NR - Topsoil" = "#F8766D", 
+              "RM - Litter" = "cyan4", 
+              "RM - Topsoil" = "#F8766D",
+              "MF - Litter" = "cyan4", 
+              "MF - Topsoil" = "#F8766D"))
+
+
+# LAP
+shapiro.test(Regression$ln_LAP)
+mod_glm_LAP <- glm(ln_LAP ~ land_cover + substrate + land_cover:substrate, 
+                   data = Regression, 
+                   family = Gamma(link = "identity"))
+car::Anova(mod_glm_LAP, test = "LR")
+emm_LAP <- emmeans(mod_glm_LAP, ~ land_cover * substrate)
+pairwise_comparisons_LAP <- pairs(emm_LAP)
+emm_LAP <- emmeans(mod_glm_LAP, ~ land_cover * substrate, type = "response")
+emm_df_LAP <- as.data.frame(emm_LAP)
+emm_df_LAP$substrate_combined <- paste(
+  emm_df_LAP$land_cover, 
+  emm_df_LAP$substrate, sep = " - ")
+emm_df_LAP$substrate_combined <- factor(
+  emm_df_LAP$substrate_combined, 
+  levels = levels(Regression$substrate_combined))
+emm_df_LAP$land_cover <- factor(
+  emm_df_LAP$land_cover, 
+  levels = levels(Regression$land_cover))
+Plot_LAP <- ggplot() +
+  geom_jitter(data = Regression, 
+              aes(x = land_cover, 
+                  y = ln_LAP, 
+                  group = substrate_combined), 
+              color = "grey60", 
+              alpha = 0.2, 
+              size = 1, 
+              position = position_dodge(0.5)) + 
+  geom_point(data = emm_df_LAP, 
+             aes(x = land_cover, 
+                 y = emmean, 
+                 color = substrate_combined), 
+             size = 3, 
+             shape = 16, 
+             alpha = 0.7, 
+             position = position_dodge(0.5)) + 
+  geom_errorbar(data = emm_df_LAP, 
+                aes(x = land_cover, 
+                    ymin = lower.CL, 
+                    ymax = upper.CL, 
+                    color = substrate_combined), 
+                width = 0.2, 
+                linewidth = 0.4, 
+                position = position_dodge(0.5)) +
+  ggtitle("Leucine aminopeptidase (LAP)") +
+  ylab("ln(activity)") +
+  xlab("Forest type") +
+  theme(legend.position = "none",
+        plot.title = element_text(size = 12, hjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        strip.text = element_text(size = 12, face = "bold"),
+        axis.line = element_line(size = 0.05),
+        panel.grid.major = element_line(color = "gray90", size = 0.2),
+        panel.grid.minor = element_line(color = "gray90", size = 0.2),
+        panel.background = element_rect(fill = "white", 
+                                        color = "black", 
+                                        size = 0.5),
+        panel.grid = element_blank()) +
+  scale_y_continuous(expand = expansion(mult = c(0.05, 0.1))) +
+    scale_color_manual(
+    values = c("RP - Litter" = "cyan4", 
+               "RP - Topsoil" = "#F8766D",
+               "NR - Litter" = "cyan4", 
+               "NR - Topsoil" = "#F8766D", 
+              "RM - Litter" = "cyan4", 
+              "RM - Topsoil" = "#F8766D",
+              "MF - Litter" = "cyan4", 
+              "MF - Topsoil" = "#F8766D"))
+
+
+# ACP
+shapiro.test(Regression$ln_ACP)
+mod_glm_ACP <- glm(ln_ACP ~ land_cover + substrate + land_cover:substrate, 
+                   data = Regression, 
+                   family = Gamma(link = "identity"))
+car::Anova(mod_glm_ACP, test = "LR")
+emm_ACP <- emmeans(mod_glm_ACP, ~ land_cover * substrate)
+pairwise_comparisons_ACP <- pairs(emm_ACP)
+emm_ACP <- emmeans(mod_glm_ACP, ~ land_cover * substrate, type = "response")
+emm_df_ACP <- as.data.frame(emm_ACP)
+emm_df_ACP$substrate_combined <- paste(
+  emm_df_ACP$land_cover, 
+  emm_df_ACP$substrate, sep = " - ")
+emm_df_ACP$substrate_combined <- factor(
+  emm_df_ACP$substrate_combined, 
+  levels = levels(Regression$substrate_combined))
+emm_df_ACP$land_cover <- factor(
+  emm_df_ACP$land_cover, 
+  levels = levels(Regression$land_cover))
+Plot_ACP <- ggplot() +
+geom_jitter(data = Regression, 
+              aes(x = land_cover, 
+                  y = ln_ACP, 
+                  group = substrate_combined), 
+              color = "grey60", 
+            alpha = 0.2, 
+            size = 1, 
+            position = position_dodge(0.5)) +
+  geom_point(data = emm_df_ACP, 
+             aes(x = land_cover, 
+                 y = emmean, 
+                 color = substrate_combined), 
+             size = 3, 
+             shape = 16, 
+             alpha = 0.7, 
+             position = position_dodge(0.5)) + 
+  geom_errorbar(data = emm_df_ACP, 
+                aes(x = land_cover, 
+                    ymin = lower.CL, 
+                    ymax = upper.CL, 
+                    color = substrate_combined), 
+                width = 0.2, 
+                linewidth = 0.4, 
+                position = position_dodge(0.5)) +
+  ggtitle("Acid phosphatase (ACP)") +
+  ylab("ln(activity)") +
+  xlab("Forest type") +
+  theme(legend.position = "none",
+        plot.title = element_text(size = 12, hjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        strip.text = element_text(size = 12, face = "bold"),
+        axis.line = element_line(size = 0.05),
+        panel.grid.major = element_line(color = "gray90", size = 0.2),
+        panel.grid.minor = element_line(color = "gray90", size = 0.2),
+        panel.background = element_rect(fill = "white", 
+                                        color = "black", 
+                                        size = 0.5),
+        panel.grid = element_blank()) +
+  scale_y_continuous(expand = expansion(mult = c(0.05, 0.1))) +
+   scale_color_manual(
+    values = c("RP - Litter" = "cyan4", 
+               "RP - Topsoil" = "#F8766D",
+               "NR - Litter" = "cyan4", 
+               "NR - Topsoil" = "#F8766D", 
+              "RM - Litter" = "cyan4", 
+              "RM - Topsoil" = "#F8766D",
+              "MF - Litter" = "cyan4", 
+              "MF - Topsoil" = "#F8766D"))
+# For legend
+Plot_ACP_legend <- ggplot() +
+  geom_jitter(data = Regression, 
+              aes(x = land_cover, 
+                  y = ln_ACP, 
+                  group = substrate_combined), 
+              color = "grey60", 
+              alpha = 0.2, 
+              size = 1, 
+              position = position_dodge(0.5)) +
+  geom_point(data = emm_df_ACP, 
+             aes(x = land_cover, 
+                 y = emmean, 
+                 color = substrate), 
+             size = 3, 
+             shape = 16, 
+             alpha = 0.7, 
+             position = position_dodge(0.5)) + 
+  geom_errorbar(data = emm_df_ACP, 
+                aes(x = land_cover, 
+                    ymin = lower.CL, 
+                    ymax = upper.CL, 
+                    color = substrate),
+                width = 0.2, linewidth = 0.4, 
+                position = position_dodge(0.5)) +
+  ggtitle("Acid phosphatase (ACP)") +
+  ylab("ln(activity)") +
+  xlab("Forest type") +
+  theme(legend.position = "left",
+        plot.title = element_text(size = 12, hjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        strip.text = element_text(size = 12, face = "bold"),
+        axis.line = element_line(size = 0.05),
+        panel.grid.major = element_line(color = "gray90", size = 0.2),
+        panel.grid.minor = element_line(color = "gray90", size = 0.2),
+        panel.background = element_rect(fill = "white", 
+                                        color = "black", 
+                                        size = 0.5),
+        panel.grid = element_blank()) +
+  scale_y_continuous(expand = expansion(mult = c(0.05, 0.1))) +
+  scale_color_manual(name = "Soil layer", 
+                     values = c("Litter" = "cyan4", 
+                                "Topsoil" = "#F8766D"))
+```
+
+## Figure 2
+
+```{r figure2, eval=FALSE}
+combine_plot_with_margin <- grid.arrange(
+  Plot_CBH, 
+  Plot_BG, 
+  Plot_NAG, 
+  Plot_LAP, 
+  Plot_ACP, 
+  Plot_ACP_legend, 
+  nrow = 3, 
+  ncol = 2)
+
+ggsave(
+  "Revision_3/Figure_2.tiff",
+  plot = combine_plot_with_margin,
+  dpi = 600,
+  height = 7,  # Increase height for margin
+  width = 6.2   # Increase width for margin
+)
+```
+
+# Stoichiometric ratio
+
+## Import data
+
+```{r enzymeRatioData}
+regression_enzyme_ratio <-  read.csv("regression_enzyme_ratio.csv")
+regression_enzyme_ratio$land_cover <- factor(regression_enzyme_ratio$land_cover, levels = c("RM", "NR", "RP", "MF"))
+regression_enzyme_ratio$substrate <- as.factor(regression_enzyme_ratio$substrate)
+regression_enzyme_ratio$substrate_combined <- paste(
+  regression_enzyme_ratio$land_cover,          
+  regression_enzyme_ratio$substrate, sep = " - ")
+regression_enzyme_ratio$substrate_combined <- factor(
+  regression_enzyme_ratio$substrate_combined, 
+  levels = c("RM - Litter", "RM - Topsoil",
+             "NR - Litter", "NR - Topsoil",
+             "RP - Litter", "RP - Topsoil",
+             "MF - Litter", "MF - Topsoil"))
+```
+
+## Regression
+
+```{r enzymeRatioRegression, results='hide', message=FALSE, warning=FALSE}
+# Enzyme CN
+shapiro.test(regression_enzyme_ratio$Enzyme_CN)
+mod_glm_Enzyme_CN <- glm(Enzyme_CN ~ land_cover + substrate + land_cover:substrate, 
+                   data = regression_enzyme_ratio, 
+                   family = Gamma(link = "identity"))
+car::Anova(mod_glm_Enzyme_CN, test = "LR")
+emm_Enzyme_CN <- emmeans(mod_glm_Enzyme_CN, ~ land_cover * substrate)
+pairwise_comparisons <- pairs(emm_Enzyme_CN)
+emm_df_Enzyme_CN <- as.data.frame(emm_Enzyme_CN)
+emm_df_Enzyme_CN$substrate_combined <- paste(
+  emm_df_Enzyme_CN$land_cover, 
+  emm_df_Enzyme_CN$substrate, sep = " - ")
+emm_df_Enzyme_CN$land_cover <- factor(
+  emm_df_Enzyme_CN$land_cover, 
+  levels = c("RM", "NR", "RP", "MF"))
+Plot_Enzyme_CN <- ggplot() +
+  geom_jitter(data = regression_enzyme_ratio, 
+              aes(x = land_cover, 
+                  y = Enzyme_CN, 
+                  group = substrate_combined), 
+              color = "grey60", 
+              alpha = 0.2, 
+              size = 1, 
+              position = position_dodge(0.5)) +
+  geom_point(data = emm_df_Enzyme_CN, 
+             aes(x = land_cover, 
+                 y = emmean, 
+                 color = substrate_combined), 
+             size = 3, 
+             shape = 16, 
+             stroke = 0.1, 
+             alpha = 0.7, 
+             position = position_dodge(width = 0.5)) + 
+  geom_errorbar(data = emm_df_Enzyme_CN, 
+                aes(x = land_cover, 
+                    ymin = lower.CL, 
+                    ymax = upper.CL, 
+                    color = substrate_combined), 
+                width = 0.2, 
+                linewidth = 0.4, 
+                stroke = 0.5,
+                position = position_dodge(width = 0.5)) + 
+  ggtitle("Enzyme C:N ratio") +
+  ylab("ln(CBH+BG)/ln(NAG+LAP)") +
+  xlab("Forest type") +
+  theme(legend.position = "none",
+        plot.title = element_text(size = 12, hjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        strip.text = element_text(size = 12, face = "bold"),
+        axis.line = element_line(size = 0.05),
+        panel.grid.major = element_line(color = "gray90", size = 0.2),
+        panel.grid.minor = element_line(color = "gray90", size = 0.2), 
+        panel.grid = element_blank(),
+        panel.background = element_rect(fill = "white", 
+                                        color = "black",
+                                        size = 0.5)) +
+  scale_y_continuous(expand = expansion(mult = c(0.05, 0.1))) +
+  scale_color_manual(
+    values = c("RM - Litter" = "cyan4", 
+               "RM - Topsoil" = "#F8766D", 
+               "NR - Litter" = "cyan4", 
+               "NR - Topsoil" = "#F8766D", 
+               "RP - Litter" = "cyan4", 
+               "RP - Topsoil" = "#F8766D", 
+               "MF - Litter" = "cyan4", 
+               "MF - Topsoil" = "#F8766D"))
+
+# Enzyme CP
+shapiro.test(regression_enzyme_ratio$Enzyme_CP)
+
+mod_glm_Enzyme_CP <- glm(
+  Enzyme_CP ~ land_cover + substrate + land_cover:substrate, 
+  data = regression_enzyme_ratio,
+  family = Gamma(link = "identity"))
+car::Anova(mod_glm_Enzyme_CP, test = "LR")
+emm_Enzyme_CP <- emmeans(mod_glm_Enzyme_CP, ~ land_cover * substrate)
+emm_df_Enzyme_CP <- as.data.frame(emm_Enzyme_CP)
+emm_df_Enzyme_CP$substrate_combined <- paste(
+  emm_df_Enzyme_CP$land_cover, 
+  emm_df_Enzyme_CP$substrate, sep = " - ")
+emm_df_Enzyme_CP$land_cover <- factor(
+  emm_df_Enzyme_CP$land_cover, 
+  levels = c("RM", "NR", "RP", "MF"))
+Plot_Enzyme_CP <- ggplot() +
+  geom_jitter(data = regression_enzyme_ratio, 
+              aes(x = land_cover, 
+                  y = Enzyme_CP, 
+                  group = substrate_combined), 
+              color = "grey60", 
+              alpha = 0.2, 
+              size = 1, 
+              position = position_dodge(0.5)) +
+  geom_point(data = emm_df_Enzyme_CP, 
+             aes(x = land_cover, 
+                 y = emmean, 
+                 color = substrate_combined), 
+             size = 3, 
+             shape = 16, 
+             stroke = 0.1, 
+             alpha = 0.7, 
+             position = position_dodge(0.5)) + 
+  geom_errorbar(data = emm_df_Enzyme_CP, 
+                aes(x = land_cover, 
+                    ymin = lower.CL, 
+                    ymax = upper.CL, 
+                    color = substrate_combined), 
+                width = 0.2, 
+                linewidth = 0.4, 
+                stroke = 0.5,
+                position = position_dodge(0.5)) + 
+  ggtitle("Enzyme C:P ratio") +
+  ylab("ln(CBH+BG)/ln(ACP)") +
+  xlab("Forest type") +
+  theme(legend.position = "none",
+        plot.title = element_text(size = 12, hjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        strip.text = element_text(size = 12, face = "bold"),
+        axis.line = element_line(size = 0.05),
+        panel.grid.major = element_line(color = "gray90", size = 0.2),
+        panel.grid.minor = element_line(color = "gray90", size = 0.2), 
+        panel.grid = element_blank(),
+        panel.background = element_rect(fill = "white", 
+                                        color = "black", 
+                                        size = 0.5)) +
+  scale_y_continuous(expand = expansion(mult = c(0.05, 0.1))) +
+  scale_color_manual(
+    values = c("RM - Litter" = "cyan4", 
+               "RM - Topsoil" = "#F8766D", 
+               "NR - Litter" = "cyan4", 
+               "NR - Topsoil" = "#F8766D", 
+               "RP - Litter" = "cyan4", 
+               "RP - Topsoil" = "#F8766D", 
+               "MF - Litter" = "cyan4", 
+               "MF - Topsoil" = "#F8766D"))
+# Enzyme NP
+shapiro.test(regression_enzyme_ratio$Enzyme_NP)
+
+mod_glm_Enzyme_NP <- glm(
+  Enzyme_NP ~ land_cover + substrate + land_cover:substrate,
+  data = regression_enzyme_ratio, 
+  family = Gamma(link = "identity"))
+car::Anova(mod_glm_Enzyme_NP, test = "LR")
+emm_Enzyme_NP <- emmeans(mod_glm_Enzyme_NP, ~ land_cover * substrate)
+emm_df_Enzyme_NP <- as.data.frame(emm_Enzyme_NP)
+emm_df_Enzyme_NP$substrate_combined <- paste(
+  emm_df_Enzyme_NP$land_cover,
+  emm_df_Enzyme_NP$substrate, sep = " - ")
+emm_df_Enzyme_NP$land_cover <- factor(
+  emm_df_Enzyme_NP$land_cover, 
+  levels = c("RM", "NR", "RP", "MF"))
+Plot_Enzyme_NP <- ggplot() +
+  geom_jitter(data = regression_enzyme_ratio, 
+              aes(x = land_cover, 
+                  y = Enzyme_NP, 
+                  group = substrate_combined), 
+              color = "grey60", 
+              alpha = 0.2, 
+              size = 1, 
+              position = position_dodge(0.5)) +
+  geom_point(data = emm_df_Enzyme_NP, 
+             aes(x = land_cover, 
+                 y = emmean, 
+                 color = substrate_combined), 
+             size = 3, 
+             shape = 16, 
+             stroke = 0.1, 
+             alpha = 0.7, 
+             position = position_dodge(0.5)) + 
+  geom_errorbar(data = emm_df_Enzyme_NP, 
+                aes(x = land_cover, 
+                    ymin = lower.CL, 
+                    ymax = upper.CL, 
+                    color = substrate_combined), 
+                width = 0.2, 
+                linewidth = 0.4, 
+                stroke = 0.5,
+                position = position_dodge(0.5)) + 
+  ggtitle("Enzyme N:P ratio") +
+  ylab("ln(NAG+LAP)/ln(ACP)") +
+  xlab("Forest type") +
+  theme(legend.position = "none",
+        plot.title = element_text(size = 12, hjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        strip.text = element_text(size = 12, face = "bold"),
+        axis.line = element_line(size = 0.05),
+        panel.grid.major = element_line(color = "gray90", size = 0.2),
+        panel.grid.minor = element_line(color = "gray90", size = 0.2), 
+        panel.grid = element_blank(),
+        panel.background = element_rect(fill = "white", 
+                                        color = "black", 
+                                        size = 0.5)) +
+  scale_y_continuous(expand = expansion(mult = c(0.05, 0.1))) +
+    scale_color_manual(
+    values = c("RM - Litter" = "cyan4", 
+               "RM - Topsoil" = "#F8766D", 
+               "NR - Litter" = "cyan4", 
+               "NR - Topsoil" = "#F8766D", 
+               "RP - Litter" = "cyan4", 
+               "RP - Topsoil" = "#F8766D", 
+               "MF - Litter" = "cyan4", 
+               "MF - Topsoil" = "#F8766D"))
+
+# VectorLength
+shapiro.test(regression_enzyme_ratio$vector_length)
+
+mod_glm_vector_length <- glm(
+  vector_length ~ land_cover + substrate + land_cover:substrate,   
+  data = regression_enzyme_ratio, 
+  family = Gamma(link = "identity"))
+car::Anova(mod_glm_vector_length, test = "LR")
+emm_vector_length <- emmeans(
+  mod_glm_vector_length, ~ land_cover * substrate)
+emm_df_vector_length <- as.data.frame(emm_vector_length)
+emm_df_vector_length$substrate_combined <- paste(
+  emm_df_vector_length$land_cover, 
+  emm_df_vector_length$substrate, sep = " - ")
+emm_df_vector_length$land_cover <- factor(
+  emm_df_vector_length$land_cover, 
+  levels = c("RM", "NR", "RP", "MF"))
+Plot_vector_length <- ggplot() +
+  geom_jitter(data = regression_enzyme_ratio, 
+              aes(x = land_cover, 
+                  y = vector_length, 
+                  group = substrate_combined), 
+              color = "grey60", 
+              alpha = 0.2, 
+              size = 1, 
+              position = position_dodge(0.5)) +
+  geom_point(data = emm_df_vector_length, 
+             aes(x = land_cover,
+                 y = emmean, 
+                 color = substrate_combined), 
+             size = 3, 
+             shape = 16, 
+             stroke = 0.1, 
+             alpha = 0.7, 
+             position = position_dodge(0.5)) + 
+  geom_errorbar(data = emm_df_vector_length, 
+                aes(x = land_cover, 
+                    ymin = lower.CL, 
+                    ymax = upper.CL, 
+                    color = substrate_combined), 
+                width = 0.2, 
+                linewidth = 0.4, 
+                stroke = 0.5,
+                position = position_dodge(0.5)) + 
+  ggtitle("Relative C-limitation") +
+  ylab("Vector length") +
+  xlab("Forest type") +
+  theme(legend.position = "none",
+        plot.title = element_text(size = 12, hjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        strip.text = element_text(size = 12, face = "bold"),
+        axis.line = element_line(size = 0.05),
+        panel.grid.major = element_line(color = "gray90", size = 0.2),
+        panel.grid.minor = element_line(color = "gray90", size = 0.2), 
+        panel.grid = element_blank(),
+        panel.background = element_rect(fill = "white", 
+                                        color = "black", 
+                                        size = 0.5)) +
+  scale_y_continuous(expand = expansion(mult = c(0.05, 0.1)),
+    labels = label_number(accuracy = 0.01)
+  ) +
+    scale_color_manual(
+    values = c("RM - Litter" = "cyan4", 
+               "RM - Topsoil" = "#F8766D", 
+               "NR - Litter" = "cyan4", 
+               "NR - Topsoil" = "#F8766D", 
+               "RP - Litter" = "cyan4", 
+               "RP - Topsoil" = "#F8766D", 
+               "MF - Litter" = "cyan4", 
+               "MF - Topsoil" = "#F8766D"))
+# VectorAngle
+shapiro.test(regression_enzyme_ratio$vector_angle)
+
+mod_glm_vector_angle <- glm(
+  vector_angle ~ land_cover + substrate + land_cover:substrate, 
+  data = regression_enzyme_ratio, 
+  family = Gamma(link = "identity"))
+car::Anova(mod_glm_vector_angle, test = "LR")
+emm_vector_angle <- emmeans(
+  mod_glm_vector_angle, ~ land_cover * substrate)
+emm_df_vector_angle <- as.data.frame(emm_vector_angle)
+emm_df_vector_angle$substrate_combined <- paste(
+  emm_df_vector_angle$land_cover, 
+  emm_df_vector_angle$substrate, sep = " - ")
+emm_df_vector_angle$land_cover <- factor(
+  emm_df_vector_angle$land_cover, 
+  levels = c("RM", "NR", "RP", "MF"))
+Plot_vector_angle <- ggplot() +
+  geom_jitter(data = regression_enzyme_ratio, 
+              aes(x = land_cover, y = vector_angle, group = substrate_combined), 
+              color = "grey60", alpha = 0.2, size = 1, 
+              position = position_dodge(0.5)) +
+  geom_point(data = emm_df_vector_angle, 
+             aes(x = land_cover, y = emmean, 
+                 color = substrate_combined), 
+             size = 3, 
+             shape = 16, 
+             stroke = 0.1, 
+             alpha = 0.7, 
+             position = position_dodge(0.5)) + 
+  geom_errorbar(data = emm_df_vector_angle, 
+                aes(x = land_cover, 
+                    ymin = lower.CL, 
+                    ymax = upper.CL, 
+                    color = substrate_combined), 
+                width = 0.2, 
+                linewidth = 0.4, 
+                stroke = 0.5,
+                position = position_dodge(0.5)) + 
+  ggtitle("N- or P-limitation") +
+  ylab("Vector angle") +
+  xlab("Forest type") +
+  theme(legend.position = "none",
+        plot.title = element_text(size = 12, hjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        strip.text = element_text(size = 12, face = "bold"),
+        axis.line = element_line(size = 0.05),
+        panel.grid.major = element_line(color = "gray90", size = 0.2),
+        panel.grid.minor = element_line(color = "gray90", size = 0.2), 
+        panel.grid = element_blank(),
+        panel.background = element_rect(fill = "white", 
+                                        color = "black", 
+                                        size = 0.5)) +
+  scale_y_continuous(expand = expansion(mult = c(0.05, 0.1))) +
+    scale_color_manual(
+    values = c("RM - Litter" = "cyan4", 
+               "RM - Topsoil" = "#F8766D", 
+               "NR - Litter" = "cyan4", 
+               "NR - Topsoil" = "#F8766D", 
+               "RP - Litter" = "cyan4", 
+               "RP - Topsoil" = "#F8766D", 
+               "MF - Litter" = "cyan4", 
+               "MF - Topsoil" = "#F8766D"))
+
+# For legend
+Plot_vector_angle_legend <- ggplot() +
+  geom_jitter(data = regression_enzyme_ratio, 
+              aes(x = land_cover, 
+                  y = vector_angle, 
+                  group = substrate_combined), 
+              color = "grey60", 
+              alpha = 0.2, 
+              size = 1, 
+              position = position_dodge(0.5)) +
+  geom_point(data = emm_df_vector_angle, 
+             aes(x = land_cover, 
+                 y = emmean, 
+                 color = substrate), 
+             size = 3, 
+             shape = 16, 
+             alpha = 0.7, 
+             position = position_dodge(0.5)) + 
+  geom_errorbar(data = emm_df_vector_angle, 
+                aes(x = land_cover, 
+                    ymin = lower.CL, 
+                    ymax = upper.CL, 
+                    color = substrate), 
+                width = 0.2, 
+                linewidth = 0.4, 
+                position = position_dodge(0.5)) +
+  ggtitle(NULL) +
+  ylab(NULL) +
+  xlab("Forest type") +
+  theme(legend.position = "left",
+        plot.title = element_text(size = 12, hjust = 0.5),
+        axis.title = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        strip.text = element_text(size = 12, face = "bold"),
+        axis.line = element_line(size = 0.05),
+        panel.grid.major = element_line(color = "gray90", size = 0.2),
+        panel.grid.minor = element_line(color = "gray90", size = 0.2),
+        panel.background = element_rect(fill = "white", 
+                                        color = "black", 
+                                        size = 0.5),
+        panel.grid = element_blank()) +
+  scale_y_continuous(expand = expansion(mult = c(0.05, 0.1))) +
+  scale_color_manual(name = "Soil layer", 
+                     values = c("Litter" = "cyan4", 
+                                "Topsoil" = "#F8766D"))
+
+```
+
+## Figure 3
+
+```{r figure3, eval=FALSE}
+combine_plot_with_margin <- grid.arrange(
+  Plot_Enzyme_CN, 
+  Plot_Enzyme_CP, 
+  Plot_Enzyme_NP, 
+  Plot_vector_length, 
+  Plot_vector_angle,
+  Plot_vector_angle_legend, 
+  nrow = 3, 
+  ncol = 2)
+
+ggsave(
+  "Revision_3/Figure_3.tiff", 
+       plot = combine_plot_with_margin, 
+  dpi = 600,
+  height = 7, 
+  width = 6.2)
+```
+
+# Ordination
+
+## Import data
+
+```{r ordination}
+ordination <- read.csv('ordination.csv', header = TRUE, row.names = 1)
+location <- read.csv("xy_rda.csv", header = TRUE, row.names = 1)
+predictor <- ordination [,1:5]
+response=ordination[,6:10]
+
+```
+
+### RDA
+
+```{r rda, results='hide'}
+location.pcnm <- as.data.frame(scores(pcnm(dist(location))))
+rda=rda(response~pH + C + N + P + BD + 
+          Condition(as.matrix(location.pcnm)[, 1:2]), 
+        data=predictor)
+summary(rda)
+set.seed(1000)
+anova_terms <- anova(rda, by = "term", permutations = 999)
+print(anova_terms)
+rda_plot=ggrda(
+  rda,  
+  axes = c(1, 2), 
+  scaling = 3, 
+  obslab = FALSE,
+  obssize = 0, 
+  obsFonts = "arial", 
+  obscol = "transparent", spacol = "#00AFBB",
+  specol = "transparent", 
+  speFonts = "Arial", 
+  spelab = TRUE, 
+  facol = "#F8766D", 
+  fcol = "transparent", 
+  fFonts = "Arial") +
+  theme_pubr(border = TRUE) +
+  theme(
+    axis.text = element_text(size = 10),   
+    axis.title = element_text(size = 10)    
+  )
+rda_plot
+```
+
+## Variance partitioning
+
+```{r variancePartitioning, results='hide'}
+variance_explained <- c(
+  BD = 0.0000512, 
+  pH = 0.0058237, 
+  C = 0.0040700, 
+  N = 0.0020167, 
+  P = 0.0003123, 
+  Residual = 0.0064461)
+total_variance <- sum(variance_explained)
+variance_percent <- (variance_explained / total_variance) * 100
+variance_df <- data.frame(Variable = names(variance_percent), 
+                          Percentage = variance_percent)
+variance_df$Variable <- factor(variance_df$Variable, 
+                               levels = c("pH", "C", "N", "P", 
+                                          "BD", "Residual"))
+variance_partitioning <- ggplot(variance_df, 
+                                aes(x = Variable, 
+                                    y = Percentage, 
+                                    fill = Variable)) +
+  geom_bar(stat = "identity", show.legend = FALSE) +
+  scale_fill_manual(values = c(rep
+                               (alpha("#F8766D", 0.6), 5),
+                               "gray80")) +
+  labs(y = "Variance Explained (%)", x = "") +
+  theme_pubr(border=TRUE) +
+  theme(
+    axis.text.x = element_text(angle = 0, hjust = 1, size = 10),
+    axis.text.y = element_text(size = 10), 
+    axis.title.y = element_text(size = 10), 
+    plot.margin = margin(t = 20, r = 20, b = 20, l = 20)
+  ) +
+  ylim(0, 42)
+variance_partitioning
+```
+
+## Figure 4
+
+```{r figure4, eval=FALSE}
+combine_plot_rda <- grid.arrange(rda_plot, 
+                                 variance_partitioning,
+                                 nrow = 1, ncol = 2, 
+                                 padding = unit(2, "cm"))
+ggsave(
+  "Figures/Figure_4.tiff",
+  plot = combine_plot_rda,
+  dpi = 600,
+  height = 3,
+  width = 6)
+```
+
+# Correlation
+
+## Import data
+
+```{r correlation}
+correlation <- read.csv("correlation.csv", header = TRUE, row.names = 1)
+```
+
+## Correlation test
+
+```{r correlationTest}
+columns_of_interest <- correlation %>%
+  select(-vector_length, -vector_angle)
+corr_vector_length <- cor(
+  columns_of_interest, correlation$vector_length, 
+  method = "kendall")
+corr_vector_angle <- cor(
+  columns_of_interest, 
+  correlation$vector_angle, 
+  method = "kendall")
+corr_results <- data.frame(
+  Variables = colnames(columns_of_interest),
+  Correlation_with_Vector_Length = corr_vector_length,
+  Correlation_with_Vector_Angle = corr_vector_angle)
+```
+
+```{r}
+sessionInfo()
+```
+
+# Soil pH and BD
+
+```{r}
+soil_pH_BD <- read.csv("soil_pH_BD.csv", header = TRUE)
+shapiro.test(soil_pH_BD$pH)
+
+mod_pH <- lm(pH~Forest_types, data=soil_pH_BD)
+summary(mod_pH)
+shapiro.test(residuals(mod_pH))
+emm_pH <- emmeans(mod_pH, ~ Forest_types)
+pairs(emm_pH)
+```
+
+```{r}
+regression_enzyme <- read.csv("regression_individual_enzyme.csv", header = TRUE)
+library(lme4)
+library(lmerTest)
+library(MuMIn)
+regression_enzyme$Forest <- as.factor(regression_enzyme$Forest)
+
+## SOC effect on CBH and BG
+shapiro.test(ordination$ln_CBH)
+
+# Fit the mixed-effects model
+mod1 <- lmer(ln_CBH ~ pH + SOC + N + P + CN+CP + NP+ (1|Forest), data = regression_enzyme)
+
+mod2 <- lm(ln_CBH ~ pH + SOC + N + P + CN + CP + NP, data = regression_enzyme)
+
+anova(mod1, mod2)
+
+summary(mod1)
+r.squaredGLMM(mod1)
+summary(mod2)$r.squared
+
+
+## SOC effect on CBH and BG
+shapiro.test(ordination$ln_BG)
+
+mod1 <- lmer(ln_BG ~ pH + SOC + N + P + CN+CP + NP+ (1|Forest), data = regression_enzyme)
+mod2 <- lm(ln_CBH ~ pH + SOC + N + P + CN + CP + NP, data = regression_enzyme)
+anova(mod1, mod2)
+
+mod1 <- lmer(ln_BG ~ pH + SOC + N + P + CN+CP + NP+ (1|Forest), data = regression_enzyme)
+shapiro.test(residuals(mod1))
+qqnorm(residuals(mod1))
+summary(mod1)
+r.squaredGLMM(mod1)
+
+
+mod1 <- lmer(ln_NAG ~ pH + SOC + N + P + CN+CP + NP+ (1|Forest), data = regression_enzyme)
+shapiro.test(residuals(mod1))
+qqnorm(residuals(mod1))
+summary(mod1)
+r.squaredGLMM(mod1)
+
+```
+
+```{r}
+vector_analysis <- read.csv("vector_analysis.csv", header = TRUE)
+RM <- vector_analysis[1:22,]
+NR <- vector_analysis[23:45,]
+RP <- vector_analysis[46:68,]
+SF <- vector_analysis[69:90,]
+
+# Calculate the mean of x and y
+mean_x <- mean(RM$x)
+mean_y <- mean(RM$y)
+# Calculate the angle (in radians) between the x-axis and the vector
+theta <- atan2(mean_y, mean_x)  # This gives the angle in radians
+
+# Convert angle to degrees
+theta_deg <- theta * 180 / pi
+
+# Calculate the vector length
+vector_length <- sqrt(mean_x^2 + mean_y^2)
+
+# Create the scatter plot with a single vector, arc for the angle, and vector length annotation
+RM <- ggplot(data = RM, aes(x = x, y = y)) + 
+  geom_point(size = 1, color = "grey", shape = 1) +  # Plot the points
+  geom_segment(data = data.frame(x = 0, y = 0, xend = mean_x, yend = mean_y), 
+               aes(x = x, y = y, xend = xend, yend = yend), 
+               arrow = arrow(type = "open", length = unit(0.1, "inches")), 
+               size = 0.5, color = "steelblue") + 
+  geom_curve(aes(x = 0.1, y = 0, xend = mean_x * 0.1, yend = mean_y * 0.1), 
+             curvature = 0.3, color = "darkgreen", size = 0.5, 
+             arrow = arrow(type = "open", length = unit(0.1, "inches"))) + 
+  labs(x = "Enzyme C:P ratio", y = "Enzyme C:N ratio", 
+       title = "Rubber monoculture") +
+  theme_pubr(border = TRUE) +
+  theme(
+    plot.title = element_text(size = 10, hjust = 0.5),
+    axis.title = element_text(size = 10),
+    axis.text = element_text(size = 10)
+  ) +
+  annotate("text", x = 0.15, y = 0.05 , label = paste("vector angle = ", round(theta_deg, 3), "°"), 
+           hjust = 0, vjust = 1, color = "black", size = 3) +
+  # Add text annotation for vector length
+  annotate("text", x = 0.15, y = 0.1, label = paste("vector length = ", round(vector_length, 3)), 
+           hjust = 0, vjust = 1, color = "black", size = 3, angle = 37) +
+  geom_hline(yintercept = 0, color = "grey40")  # Add a horizontal line at y = 0
+
+RM
+
+# Calculate the mean of x and y for the whole dataset
+mean_x <- mean(NR$x)
+mean_y <- mean(NR$y)
+# Calculate the angle (in radians) between the x-axis and the vector
+theta <- atan2(mean_y, mean_x)  # This gives the angle in radians
+
+# Convert angle to degrees
+theta_deg <- theta * 180 / pi
+
+# Calculate the vector length
+vector_length <- sqrt(mean_x^2 + mean_y^2)
+
+# Create the scatter plot with a single vector, arc for the angle, and vector length annotation
+NR <- ggplot(data = NR, aes(x = x, y = y)) + 
+  geom_point(size = 1, color = "grey", shape = 1) +  # Plot the points
+  geom_segment(data = data.frame(x = 0, y = 0, xend = mean_x, yend = mean_y), 
+               aes(x = x, y = y, xend = xend, yend = yend), 
+               arrow = arrow(type = "open", length = unit(0.1, "inches")), 
+               size = 0.5, color = "steelblue") + 
+  geom_curve(aes(x = 0.1, y = 0, xend = mean_x * 0.1, yend = mean_y * 0.1), 
+             curvature = 0.3, color = "darkgreen", size = 0.5, 
+             arrow = arrow(type = "open", length = unit(0.1, "inches"))) + 
+  labs(x = "Enzyme C:P ratio", y = "Enzyme C:N ratio", 
+       title = "Naturally restored forest") +
+  theme_pubr(border = TRUE) +
+  theme(
+    plot.title = element_text(size = 10, hjust = 0.5),
+    axis.title = element_text(size = 10),
+    axis.text = element_text(size = 10)
+  ) +
+  annotate("text", x = 0.15, y = 0.05 , label = paste("vector angle = ", round(theta_deg, 3), "°"), 
+           hjust = 0, vjust = 1, color = "black", size = 3) +
+  # Add text annotation for vector length
+  annotate("text", x = 0.15, y = 0.1, label = paste("vector length = ", round(vector_length, 3)), 
+           hjust = 0, vjust = 1, color = "black", size = 3, angle = vector_angle_deg) +
+  geom_hline(yintercept = 0, color = "grey40")  # Add a horizontal line at y = 0
+NR
+
+
+# Calculate the mean of x and y for the whole dataset
+mean_x <- mean(RP$x)
+mean_y <- mean(RP$y)
+# Calculate the angle (in radians) between the x-axis and the vector
+theta <- atan2(mean_y, mean_x)  # This gives the angle in radians
+
+# Convert angle to degrees
+theta_deg <- theta * 180 / pi
+
+# Calculate the vector length
+vector_length <- sqrt(mean_x^2 + mean_y^2)
+
+# Create the scatter plot with a single vector, arc for the angle, and vector length annotation
+RP <- ggplot(data = RP, aes(x = x, y = y)) + 
+  geom_point(size = 1, color = "grey", shape = 1) +  # Plot the points
+  geom_segment(data = data.frame(x = 0, y = 0, xend = mean_x, yend = mean_y), 
+               aes(x = x, y = y, xend = xend, yend = yend), 
+               arrow = arrow(type = "open", length = unit(0.1, "inches")), 
+               size = 0.5, color = "steelblue") +   
+  geom_curve(aes(x = 0.1, y = 0, xend = mean_x * 0.1, yend = mean_y * 0.1), 
+             curvature = 0.3, color = "darkgreen", size = 0.5, 
+             arrow = arrow(type = "open", length = unit(0.1, "inches"))) + 
+  labs(x = "Enzyme C:P ratio", y = "Enzyme C:N ratio", 
+       title = "Artificially restored forest") +
+  theme_pubr(border = TRUE) +
+  theme(
+    plot.title = element_text(size = 10, hjust = 0.5),
+    axis.title = element_text(size = 10),
+    axis.text = element_text(size = 10)
+  ) +
+  annotate("text", x = 0.15, y = 0.05 , label = paste("vector angle = ", round(theta_deg, 3), "°"), 
+           hjust = 0, vjust = 1, color = "black", size = 3) +
+  # Add text annotation for vector length
+  annotate("text", x = 0.15, y = 0.1, label = paste("vector length = ", round(vector_length, 3)), 
+           hjust = 0, vjust = 1, color = "black", size = 3, angle = vector_angle_deg) +
+  geom_hline(yintercept = 0, color = "grey40")  # Add a horizontal line at y = 0
+RP
+
+# Calculate the mean of x and y for the whole dataset
+mean_x <- mean(SF$x)
+mean_y <- mean(SF$y)
+# Calculate the angle (in radians) between the x-axis and the vector
+theta <- atan2(mean_y, mean_x)  # This gives the angle in radians
+
+# Convert angle to degrees
+theta_deg <- theta * 180 / pi
+
+# Calculate the vector length
+vector_length <- sqrt(mean_x^2 + mean_y^2)
+
+# Create the scatter plot with a single vector, arc for the angle, and vector length annotation
+SF <- ggplot(data = SF, aes(x = x, y = y)) + 
+  geom_point(size = 1, color = "grey", shape = 1) +  # Plot the points
+  geom_segment(data = data.frame(x = 0, y = 0, xend = mean_x, yend = mean_y), 
+               aes(x = x, y = y, xend = xend, yend = yend), 
+               arrow = arrow(type = "open", length = unit(0.1, "inches")), 
+               size = 0.5, color = "steelblue") + 
+  geom_curve(aes(x = 0.1, y = 0, xend = mean_x * 0.1, yend = mean_y * 0.1), 
+             curvature = 0.3, color = "darkgreen", size = 0.5, 
+             arrow = arrow(type = "open", length = unit(0.1, "inches"))) + 
+  labs(x = "Enzyme C:P ratio", y = "Enzyme C:N ratio", 
+       title = "Mature tropical rainforest") +
+  theme_pubr(border = TRUE) +
+  theme(
+    plot.title = element_text(size = 10, hjust = 0.5),
+    axis.title = element_text(size = 10),
+    axis.text = element_text(size = 10)
+  ) +
+  annotate("text", x = 0.15, y = 0.05 , label = paste("vector angle = ", round(theta_deg, 3), "°"), 
+           hjust = 0, vjust = 1, color = "black", size = 3) +
+  # Add text annotation for vector length
+  annotate("text", x = 0.15, y = 0.1, label = paste("vector length = ", round(vector_length, 3)), 
+           hjust = 0, vjust = 1, color = "black", size = 3, angle = vector_angle_deg) +
+  geom_hline(yintercept = 0, color = "grey40")  # Add a horizontal line at y = 0
+SF
+
+
+```
+
+```{r, warning=FALSE}
+library(gridExtra)
+combine_plot_vector <- grid.arrange(
+  RM, 
+  NR, 
+  RP, 
+  SF, 
+  nrow = 2, 
+  ncol = 2)
+
+ggsave(
+  "Figures/Figure_S2.tiff", 
+       plot = combine_plot_vector, 
+  dpi = 600,
+  height = 5, 
+  width = 6)
+```
